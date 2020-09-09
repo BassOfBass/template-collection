@@ -1,0 +1,442 @@
+/* Generic rules */
+/* &lt; = < &gt; = > */
+
+/* 
+  Put a border on each element which isn't <html> and apply some padding + margin
+*/
+*:not(html) {
+  border: 1px solid lightgray;
+  padding: 0.5em;
+  margin: 0.5em;
+}
+
+/* 
+  Set a color of all tag markers
+*/
+*::before {
+  color: brown;
+}
+
+html::before {content: "html ";}
+
+body {}
+body::before {content: "body ";}
+
+/* Content sectioning */
+
+header {}
+header::before {content: "header ";}
+
+aside {}
+aside::before {content: "aside ";}
+
+footer {}
+footer::before {content: "footer ";}
+
+nav {}
+nav::before {content: "nav ";}
+
+section {}
+section::before {content: "section "}
+
+article {}
+article::before {content: "article "}
+
+address {}
+address::before {content: "address "}
+
+hgroup {}
+hgroup::before {content: "heading group "}
+
+h1 {}
+h1::before {content: "heading 1 ";}
+
+h2 {}
+h2::before {content: "heading 2 ";}
+
+h3 {}
+h3::before {content: "heading 3 ";}
+
+h4 {}
+h4::before {content: "heading 4 ";}
+
+h5 {}
+h5::before {content: "heading 5 ";}
+
+h6 {}
+h6::before {content: "heading 6 ";}
+/* END Content sectioning */
+
+/* Text content */
+
+main {}
+main::before {content: "main ";}
+
+blockquote {}
+blockquote::before {content: "blockquote "}
+
+figure {}
+figure::before {content: "figure "}
+
+figcaption {}
+figcaption::before {content: "figure caption "}
+
+ul {}
+ul::before {content: "unordered list ";}
+
+ol {}
+ol::before {content: "ordered list ";}
+
+li {}
+li::before {content: "list element ";}
+
+p {}
+p::before {content: "paragraph ";}
+
+hr {
+  padding: 1em;
+}
+hr::before {content: "thematic break "}
+
+div {}
+div::before {content: "division ";}
+
+dl {}
+dl::before {content: "description list ";}
+
+dt {}
+dt::before {content: "description term ";}
+
+dd {}
+dd::before {content: "description definition ";}
+
+pre {}
+pre::before {content: "prefomatted text ";}
+
+/* END Text content */
+
+/* Inline text semantics */
+
+a {}
+a::before {content: "anchor "}
+
+abbr {}
+abbr::before {content: "abbreviation "}
+
+dfn {}
+dfn::before {content: "definition "}
+
+b {}
+b::before {content: "bring attention "}
+
+bdi {}
+bdi::before {content: "bidirectional isolate "}
+
+bdo {}
+bdo::before {content: "bidirectional override "}
+
+br {}
+br::before {content: "line break ";}
+
+cite {}
+cite::before {content: "cite "}
+
+code {}
+code::before {content: "code "}
+
+data {}
+data::before {content: "data "}
+
+em {}
+em::before {content: "emphasis "}
+
+i {}
+i::before {content: "idiomatic "}
+
+kbd {}
+kbd::before {content: "keyboard input "}
+
+mark {}
+mark::before {content: "mark "}
+
+q {}
+q::before {content: "quotation "}
+
+ruby {}
+ruby::before {content: "ruby annotation "}
+rt {}
+rt::before {content: "ruby text "}
+rb {}
+rb::before {content: "ruby base "}
+rp {}
+rp::before {content: "ruby fallback "}
+rtc {}
+rtc::before {content: "ruby container "}
+rbc {}
+rbc::before {content: "ruby <rbc> "}
+
+s {}
+s::before {content: "strikethrough "}
+
+samp {}
+samp::before {content: "sample "}
+
+small {}
+small::before {content: "small "}
+
+span {}
+span::before {content: "span "}
+
+strong {}
+strong::before {content: "strong "}
+
+sub {}
+sub::before {content: "subscript "}
+
+sup {}
+sup::before {content: "superscript "}
+
+time {}
+time::before {content: "time "}
+
+u {}
+u::before {content: "unarticulated "}
+
+var {}
+var::before {content: "variable "}
+
+wbr {}
+wbr::before {content: "word break "}
+/* END Inline text semantics */
+
+/* Image and multimedia */
+map {}
+map::before {content: "map "}
+
+area {}
+area::before {content: "area "}
+
+picture {}
+picture::before {content: "picture "}
+
+audio {}
+audio::before {content: "audio "}
+
+video {}
+video::before {content: "video "}
+
+track {}
+track::before {content: "track "}
+
+source {}
+source::before {content: "source "}
+
+img {}
+img::before {content: "image "}
+
+/* END Image and multimedia */
+
+/* Embedded content */
+embed {}
+embed::before {content: "embed "}
+iframe {}
+iframe::before {content: "iframe "}
+object {}
+object::before {content: "object "}
+param {}
+param::before {content: "param "}
+/* END Embedded content */
+
+/* Scripting */
+canvas {}
+canvas::before {content: "canvas "}
+noscript {}
+noscript::before {content: "noscript "}
+script {}
+script::before {content: "script "}
+/* END Scripting */
+
+/* Demarcating edits */
+del {}
+del::before {content: "del "}
+ins {}
+ins::before {content: "ins "}
+/* END Demarcating edits */
+
+/* Table content */
+table {}
+table::before {content: "table "}
+caption {}
+caption::before {content: "caption "}
+colgroup {}
+colgroup::before {content: "colgroup "}
+col {}
+col::before {content: "col "}
+thead {}
+thead::before {content: "thead "}
+th {}
+th::before {content: "th "}
+tbody {}
+tbody::before {content: "tbody "}
+tr {}
+tr::before {content: "tr "}
+td {}
+td::before {content: "td "}
+tfoot {}
+tfoot::before {content: "tfoot "}
+/* END Table content */
+
+/* Forms */
+form {}
+form::before {content: "form "}
+fieldset {}
+fieldset::before {content: "fieldset "}
+legend {}
+legend::before {content: "legend "}
+label {}
+label::before {content: "label "}
+input {}
+input::before {content: "input "}
+output {}
+output::before {content: "output "}
+textarea {}
+textarea::before {content: "textarea "}
+meter {}
+meter::before {content: "meter "}
+progress {}
+progress::before {content: "progress "}
+datalist {}
+datalist::before {content: "datalist "}
+select {}
+select::before {content: "select "}
+optgroup {}
+optgroup::before {content: "optgroup "}
+option {}
+option::before {content: "option "}
+button {}
+button::before {content: "button "}
+/* END Forms */
+
+/* Interactive elements */
+summary {}
+summary::before {content: "summary "}
+details {}
+details::before {content: "details "}
+dialog {}
+dialog::before {content: "dialog "}
+menu {}
+menu::before {content: "menu "}
+/* END Interactive elements */
+
+/* Web components */
+template {}
+template::before {content: "template "}
+slot {}
+slot::before {content: "slot "}
+/* END Web components */
+
+/* Obsolete and deprecated elements */
+acronym,
+applet,
+basefont,
+bgsound,
+big,
+blink,
+center,
+command,
+content,
+dir,
+element,
+font,
+frame,
+frameset,
+image,
+isindex,
+keygen,
+listing,
+marquee,
+menuitem,
+multicol,
+nextid,
+nobr,
+noembed,
+noframes,
+plaintext,
+shadow,
+spacer,
+strike,
+tt,
+xmp {
+  color: red;
+}
+
+acronym {}
+acronym::before {content: "acronym deprecated "}
+applet {}
+applet::before {content: "applet deprecated "}
+basefont {}
+basefont::before {content: "basefont deprecated "}
+bgsound {}
+bgsound::before {content: "bgsound deprecated "}
+big {}
+big::before {content: "big deprecated "}
+blink {}
+blink::before {content: "blink deprecated "}
+center {}
+center::before {content: "center deprecated "}
+command {}
+command::before {content: "command deprecated "}
+content {}
+content::before {content: "content deprecated "}
+dir {}
+dir::before {content: "dir deprecated "}
+element {}
+element::before {content: "element deprecated "}
+font {}
+font::before {content: "font deprecated "}
+frame {}
+frame::before {content: "frame deprecated "}
+frameset {}
+frameset::before {content: "frameset deprecated "}
+image {}
+image::before {content: "image deprecated "}
+isindex {}
+isindex::before {content: "isindex deprecated "}
+keygen {}
+keygen::before {content: "keygen deprecated "}
+listing {}
+listing::before {content: "listing deprecated "}
+marquee {}
+marquee::before {content: "marquee deprecated "}
+menuitem {}
+menuitem::before {content: "menuitem deprecated "}
+multicol {}
+multicol::before {content: "multicol deprecated "}
+nextid {}
+nextid::before {content: "nextid deprecated "}
+nobr {}
+nobr::before {content: "nobr deprecated "}
+noembed {}
+noembed::before {content: "noembed deprecated "}
+noframes {}
+noframes::before {content: "noframes deprecated "}
+plaintext {}
+plaintext::before {content: "plaintext deprecated "}
+shadow {}
+shadow::before {content: "shadow deprecated "}
+spacer {}
+spacer::before {content: "spacer deprecated "}
+strike {}
+strike::before {content: "strike deprecated "}
+tt {}
+tt::before {content: "tt deprecated "}
+xmp {}
+xmp::before {content: "xmp deprecated "}
+/* END Obsolete and deprecated elements */
+/* END Generic rules */
+
+/* Attribute rules */
+/* Only selectors by attribute go there */
+input[type="button"] {}
+input[type="button"]::before {content: "button "}
+/* END Attribute rules */

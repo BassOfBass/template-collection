@@ -1,0 +1,578 @@
+/* Generic selectors */
+/* 
+  Only rules applying to base tags go there 
+*/
+
+/* 
+  Identical to the selector "html", except that its specificity is higher.
+  Use it for global variable declarations only
+*/
+:root {
+  --primary-color: black;
+  --secondary-color: white;
+}
+
+/* 
+  Set base font and the box sizing property 
+*/
+html {
+  /* 
+    Sets font size property which then becomes a basis for "rem" units 
+  */
+  font: 16px Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 
+  Inherit box sizing from base to everything else 
+*/
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  color: hsl(0, 0%, 20%);
+  padding: 0;
+  margin: 0;
+}
+
+/* Content sectioning */
+
+/* 
+  Style semantic tags for older browsers 
+*/
+article, 
+aside, 
+footer, 
+header, 
+nav, 
+section {
+  display: block;
+}
+
+header {}
+
+aside {}
+
+footer {
+  padding: 1em;
+}
+
+nav {}
+
+section {}
+
+article {}
+
+/* 
+  No nested <address> element, no heading content (<hgroup>, <h1>, <h2>, <h3>, <h4>, <h5>, <h6>), no sectioning content (<article>, <aside>, <section>, <nav>), and no <header> or <footer> element. 
+*/
+address {}
+
+/* 
+  Only heading tags permitted inside it 
+*/
+hgroup {}
+
+/* 
+  Set heading font sizes relative to document root 
+*/
+h1 {
+  font-size: 2.2rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.8rem;
+}
+
+h4 {
+  font-size: 1.6rem;
+}
+
+h5 {
+  font-size: 1.4rem;
+}
+
+h6 {
+  font-size: 1.2rem;
+}
+
+/* END Content sectioning */
+
+/* Text content */
+
+main {}
+
+/* 
+  Set consistent line height across several text elements 
+*/
+p,
+li,
+dt,
+dd {
+  line-height: 1.5;
+}
+
+dl {}
+dt {}
+dd {}
+
+pre {}
+
+/* END Text content */
+
+/* Inline text semantics */
+a {
+  outline: none;
+  text-decoration: none;
+  padding: 2px 1px 0;
+}
+
+a:link {}
+
+/* 
+  Only the following styles can be applied to visited links: 
+
+  "color"
+  "background-color"
+  "border-color" (and its sub-properties)
+  "column-rule-color"
+  "outline-color"
+  The color parts of the "fill" and "stroke" attributes
+
+  In addition, even for the above styles, you won't be able to change the transparency between unvisited and visited links, as you otherwise would be able to using rgba(), hsla(), or the transparent keyword.
+*/
+a:visited {}
+
+/* 
+  Combine focus and hover together. 
+*/
+a:focus,
+a:hover {
+  /* 
+    border-bottom has better styling options than than text-decoration 
+    no color specified means it will adopt font color
+  */
+  border-bottom: 1px solid;
+  cursor: pointer;
+}
+
+a:active {}
+
+abbr {}
+dfn {}
+b {}
+
+/* Not supported in Safari and IE */
+bdi {}
+bdo {}
+
+br {}
+code {}
+cite {}
+
+/* Not supported in IE */
+data {}
+
+/* 
+  Can be nested, with each level of nesting indicating a greater degree of emphasis. 
+*/
+em {}
+i {}
+
+/* 
+  May be nested in various combinations with the <samp> (Sample Output) element to represent various forms of input or output based on visual cues. 
+*/
+kbd {}
+
+mark {}
+q {}
+ruby {}
+rt {}
+rb {}
+rp {}
+
+/* Only supported in Firefox */
+rtc {}
+
+rbc {}
+s {}
+samp {}
+small {}
+span {}
+strong {}
+sub {}
+sup {}
+
+/* 
+  If the element does not have a datetime attribute, it must not have any element descendants, and the datetime value is the element’s child text content. 
+*/
+/* Not supported by Internet Explorer */
+time {}
+
+u {
+  text-decoration: #f00 wavy underline;
+}
+
+/* Not supported in IE 7+ */
+wbr {}
+
+/* Demarcating edits */
+
+del {}
+ins {}
+
+/* END Demarcating edits */
+/* END Inline text semantics */
+
+/* Image and multimedia */
+
+map {}
+
+/* 
+  Used only within a <map> element. 
+*/
+area {}
+
+img,
+picture,
+audio,
+video {
+  display: block;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Not supported by Internet Explorer */
+picture {}
+
+source {}
+
+picture > img,
+picture > source {
+  object-position: center;
+  object-fit: contain;
+}
+audio {}
+video {}
+
+
+track {}
+
+/* END Image and multimedia */
+
+/* Embedded content */
+embed {}
+iframe {}
+object {}
+param {}
+/* END Embedded content */
+
+/* Scripting */
+canvas {}
+noscript {}
+script {}
+/* END Scripting */
+
+/* Table content */
+table {}
+caption {}
+colgroup {}
+col {}
+thead {}
+th {}
+tbody {}
+tr {}
+td {}
+tfoot {}
+/* END Table content */
+
+/* Forms */
+
+button, 
+input, 
+select, 
+textarea { 
+  padding: 0.5em;
+}
+
+button,
+input {
+  /* 
+    Interactive elements such as form input should provide an area large enough that it is easy to activate them. This helps a variety of people, including people with motor control issues and people using non-precise forms of input such as a stylus or fingers. A minimum interactive size of 44×44 CSS pixels is recommended. 
+  */
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: 5px;
+}
+
+form {}
+
+fieldset {
+  margin: 0.5em;
+}
+
+legend {
+  border: 1px solid;
+  padding: 0.5em;
+}
+
+label {
+  padding: 0.5em;
+  cursor: pointer;
+}
+
+input {
+  /* 
+    A property specific to text entry-related elements is the CSS caret-color property, which lets you set the color used to draw the text input caret: 
+  */
+  caret-color: inherit;
+}
+
+/* 
+  Any currently enabled element that can be activated (selected, clicked on, typed into, etc.) or accept focus and also has a disabled state, in which it can't be activated or accept focus. 
+*/
+input:enabled {}
+
+/* 
+  Any currently disabled element that has an enabled state, meaing it otherwise could be activated (selected, clicked on, typed into, etc.) or accept focus were it not disabled. 
+*/
+input:disabled {}
+
+/* 
+  Element not editable by the user 
+*/
+input:read-only {}
+
+/* 
+  Element that is editable by the user. 
+*/
+input:read-write {}
+
+/* 
+  Element that is currently displaying placeholder text, including <input> and <textarea> elements with the placeholder attribute present that has, as of yet, no value. 
+*/
+input:placeholder-shown {}
+
+/* 
+  Form elements that are the default in a group of related elements. Matches checkbox and radio input types that were checked on page load or render. 
+*/
+input:default {}
+
+/* 
+  Matches "checkbox" and "radio" input types that are currently checked (and the <option> in a <select> that is currently selected). 
+*/
+input:checked {}
+
+/* 
+  "checkbox" elements whose indeterminate property is set to true by JavaScript, "radio" elements, when all radio buttons with the same name value in the form are unchecked, and <progress> elements in an indeterminate state 
+*/
+input:indeterminate {}
+
+/* 
+  Form controls that can have constraint validation applied and are currently valid. 
+*/
+input:valid {}
+
+/* 
+  Form controls that have constraint validation applied and are currently not valid. Matches a form control whose value doesn't match the constraints set on it by it's attributes, such as "required", "pattern", "step" and "max". 
+*/
+input:invalid {}
+
+/* 
+  A non-empty input whose current value is within the range limits specified by the "min" and "max" attributes and the "step". 
+*/
+input:in-range {}
+
+/* 
+  A non-empty input whose current value is NOT within the range limits specified by the "min" and "max" attributes or does not adher to the "step" constraint. 
+*/
+input:out-of-range {}
+
+/* 
+  <input>, <select>, or <textarea> element that has the required attribute set on it. Only matches elements that can be required. The attribute included on a non-requirable element will not make for a match. 
+*/
+input:required {
+}
+
+/* 
+  <input>, <select>, or <textarea> element that does NOT have the required attribute set on it. Does not match elements that can't be required. 
+*/
+input:optional {}
+
+/* 
+  <input> and <textarea> elements that currently have no value. 
+*/
+input:blank {}
+
+/* 
+  Similar to :invalid, but is activated on blur. Matches invalid input but only after the user interaction, such as by focusing on the control, leaving the control, or attempting to submit the form containing the invalid control. 
+*/
+input:user-invalid {}
+
+/* 
+  Only the subset of CSS properties that apply to the ::first-line pseudo-element can be used in a rule using ::placeholder in its selector. 
+*/
+input::placeholder {}
+
+output {}
+textarea {}
+meter {}
+progress {}
+datalist {}
+select {}
+optgroup {}
+option {}
+
+button {
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 0.5em;
+  cursor: pointer;
+}
+
+button:disabled,
+textarea:disabled,
+input:disabled {
+  cursor: not-allowed;
+}
+
+/* END Forms */
+
+/* Interactive elements */
+summary {}
+details {}
+dialog {}
+menu {}
+/* END Interactive elements */
+
+/* Web components */
+template {}
+slot {}
+/* END Web components */
+
+
+
+ul, ol {
+  padding: 0 1em;
+  margin: 0;
+}
+
+li {
+  font-size: 0.95em;
+  text-align: inherit;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 0.25em;
+  text-align: start;
+}
+
+img, 
+picture,
+audio,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* END Generic selectors */
+
+/* Attribute selectors */
+/* 
+  Only selectors by attribute go there 
+*/
+
+/* 
+  external link 
+*/
+a[href*="http"] {
+}
+
+/* local link */
+a[href^="#"] {
+  color: hsla(270, 50%, 60%);
+}
+
+a[href^="#"]:link {}
+
+/* 
+  No point for visited state 
+*/
+/* a[href^="#"]:visited {} */
+
+a[href^="#"]:focus {
+  color: hsl(270, 70%, 50%);
+  background-color: ivory;
+  border-bottom: 1px solid;
+}
+
+a[href^="#"]:hover {
+  color: hsl(270, 70%, 50%);
+  background-color: ivory;
+  border-bottom: 1px solid;
+}
+
+a[href^="#"]:active {
+  color: ivory;
+  background-color: hsl(270, 70%, 50%);
+  border-bottom: 1px solid;
+}
+/* END local link */
+
+/* Not supported by Internet Explorer */
+input[type="color"] {}
+
+/* Not supported by Internet Explorer */
+input[type="date"] {}
+
+/* Not supported by Internet Explorer */
+input[type="datetime-local"] {}
+
+/* Not supported by Internet Explorer */
+input[type="month"] {}
+
+
+/* 
+  Make file input completely transparent due to limited styling, but not hide it for accesibility reasons. Its label gets "fileinput" class and styled as a button instead.
+*/
+label + input[type="file"] {
+  opacity: 0;
+}
+
+/* Attribute [class=""] selectors */
+/* END Attribute [class=""] selectors */
+/* Attribute [id=""] selectors */
+/* END Attribute [id=""] selectors */
+/* END Attribute selectors */
+
+/* Class selectors */
+
+.gheader {
+  width: 100%;
+  padding: 0.5em;
+  text-align: center;
+}
+
+.gheading {
+
+}
+
+/* END Class selectors */
+
+/* ID selectors */
+
+/* END ID selectors */

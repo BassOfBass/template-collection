@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- the below three lines are a fix to get HTML5 semantic elements working in old versions of Internet Explorer -->
+    <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    <![endif]-->
+  <!-- insert icon -->
+  <link rel="shortcut icon" href="" type="image/x-icon">
+  <!-- insert stylesheets -->
+  <link rel="stylesheet" href="/template.css">
+  <link rel="stylesheet" href="/sandbox.css">
+  <meta name="author" content="">
+  <meta name="description" content="">
+  <script src="/template.js" defer></script>
+  <!-- insert a title -->
+  <title>HTML template</title>
+</head>
+<body>
+  <header class="gheader">
+    <h1 class="gheading"></h1>
+    <nav class="gnav">
+      <ul class="gnavlist">
+        <li class="gnavlistitem"><a href="/">Home</a></li>
+      </ul>
+    </nav>
+    <section class="gforms">
+      <form action="" method="GET" class="gsearch">
+        <section class="gformsection">
+          <label for="sitesearch">Search:</label>
+          <input type="search" id="sitesearch" name="sitesearch">
+        </section>
+        <button type="submit">Go!</button>
+      </form>
+      <form id="gusercontrol" action="" method="POST" class="gusercontrol">
+        <section class="gformsection">
+          <label for="username">Name:</label>
+          <input type="text" name="username" id="username">
+        </section>
+        <section class="gformsection">
+          <label for="usermail">Email:</label>
+          <input type="email" name="email" id="usermail">
+        </section>
+        <section class="gformsection">
+          <label for="userpass">Password:</label>
+          <input type="password" name="new-password" id="userpass">
+        </section>
+        <button type="submit" class="gusersubmit">Register</button>
+      </form>
+    </section>
+  </header>
+  <main>
+    <section>
+      <h2>Base selectors</h2>
+    </section>
+    <section>
+      <h2>Attribute selectors</h2>
+    </section>
+    <section>
+      <h2>Class selectors</h2>
+    </section>
+  </main>
+  <aside class="gaside"></aside>
+  <footer class="gfooter"></footer>
+</body>
