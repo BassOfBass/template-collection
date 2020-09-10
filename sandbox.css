@@ -15,218 +15,165 @@
 */
 *::before {
   color: brown;
+  padding-right: 0.5em;
 }
 
-html::before {content: "html ";}
-
-body::before {content: "body ";}
-
+html::before {content: "<html>"}
+body::before {content: "<body>"}
 /* Content sectioning */
-
-header::before {content: "header ";}
-
-aside::before {content: "aside ";}
-
-footer::before {content: "footer ";}
-
-nav::before {content: "nav ";}
-
-section::before {content: "section "}
-
-article::before {content: "article "}
-
-address {}
-address::before {content: "address "}
-
-hgroup::before {content: "heading group "}
-
-h1::before {content: "heading 1 ";}
-
-h2::before {content: "heading 2 ";}
-
-h3::before {content: "heading 3 ";}
-
-h4::before {content: "heading 4 ";}
-
-h5::before {content: "heading 5 ";}
-
-h6::before {content: "heading 6 ";}
+header::before {content: "<header>"}
+aside::before {content: "<aside>"}
+footer::before {content: "<footer>"}
+nav::before {content: "<nav>"}
+section::before {content: "<section>"}
+article::before {content: "<article>"}
+address::before {content: "<address>"}
+hgroup::before {content: "<hg>"}
+h1::before {content: "<h1>"}
+h2::before {content: "<h2>"}
+h3::before {content: "<h3>"}
+h4::before {content: "<h4>"}
+h5::before {content: "<h5>"}
+h6::before {content: "<h6>"}
 /* END Content sectioning */
 
 /* Text content */
+main::before {content: "main";}
 
-main::before {content: "main ";}
+blockquote::before {content: "blockquote"}
 
-blockquote::before {content: "blockquote "}
+figure::before {content: "figure"}
 
-figure::before {content: "figure "}
+figcaption::before {content: "figure caption"}
 
-figcaption::before {content: "figure caption "}
+ul::before {content: "unordered list";}
 
-ul::before {content: "unordered list ";}
+ol::before {content: "ordered list";}
 
-ol::before {content: "ordered list ";}
+li::before {content: "list element";}
 
-li::before {content: "list element ";}
+p::before {content: "paragraph";}
 
-p::before {content: "paragraph ";}
+hr { padding: 1em }
+hr::before {content: "thematic break"}
 
-hr {
-  padding: 1em;
-}
-hr::before {content: "thematic break "}
+div::before {content: "division";}
 
-div::before {content: "division ";}
+dl::before {content: "description list";}
 
-dl::before {content: "description list ";}
+dt::before {content: "description term";}
 
-dt::before {content: "description term ";}
+dd::before {content: "description definition";}
 
-dd::before {content: "description definition ";}
-
-pre::before {content: "prefomatted text ";}
+pre::before {content: "prefomatted text";}
 
 /* END Text content */
 
 /* Inline text semantics */
-
-a::before {content: "anchor "}
-
-abbr::before {content: "abbreviation "}
-
-dfn::before {content: "definition "}
-
-b::before {content: "bring attention "}
-
-bdi::before {content: "bidirectional isolate "}
-
-bdo::before {content: "bidirectional override "}
-
-br::before {content: "line break ";}
-
-cite::before {content: "cite "}
-
-code::before {content: "code "}
-
-data::before {content: "data "}
-
-em::before {content: "emphasis "}
-
-i::before {content: "idiomatic "}
-
-kbd::before {content: "keyboard input "}
-
-mark::before {content: "mark "}
-
-q::before {content: "quotation "}
-
-ruby::before {content: "ruby annotation "}
-rt::before {content: "ruby text "}
-rb::before {content: "ruby base "}
-rp::before {content: "ruby fallback "}
-rtc::before {content: "ruby container "}
-rbc::before {content: "ruby <rbc> "}
-
-s::before {content: "strikethrough "}
-
-samp::before {content: "sample "}
-
-small::before {content: "small "}
-
-span::before {content: "span "}
-
-strong::before {content: "strong "}
-
-sub::before {content: "subscript "}
-
-sup::before {content: "superscript "}
-
-time::before {content: "time "}
-
-u::before {content: "unarticulated "}
-
-var::before {content: "variable "}
-
-wbr::before {content: "word break "}
+a::before {content: "<a>"}
+abbr::before {content: "<abbr>"}
+dfn::before {content: "<dfn>"}
+b::before {content: "<b>"}
+bdi::before {content: "<bdi>"}
+bdo::before {content: "<bdo>"}
+br::before {content: "<br>"}
+cite::before {content: "<cite>"}
+code::before {content: "<code>"}
+data::before {content: "<data>"}
+em::before {content: "<em>"}
+i::before {content: "<i>"}
+kbd::before {content: "<kbd>"}
+mark::before {content: "<mark>"}
+q::before {content: "<q>"}
+ruby::before {content: "<ruby>"}
+rt::before {content: "<rt>"}
+rb::before {content: "<rb>"}
+rp::before {content: "<rp>"}
+rtc::before {content: "<rtc>"}
+rbc::before {content: "<rbc>"}
+s::before {content: "<s>"}
+samp::before {content: "<samp>"}
+small::before {content: "<small>"}
+span::before {content: "<span>"}
+strong::before {content: "<strong>"}
+sub::before {content: "<subu>"}
+sup::before {content: "<supu>"}
+time::before {content: "<time>"}
+u::before {content: "<u>"}
+var::before {content: "<var>"}
+wbr::before {content: "<wbr>"}
 /* END Inline text semantics */
 
 /* Image and multimedia */
-map::before {content: "map "}
-
-area::before {content: "area "}
-
-picture::before {content: "picture "}
-
-audio::before {content: "audio "}
-
-video::before {content: "video "}
-
-track::before {content: "track "}
-
-source::before {content: "source "}
-
-img::before {content: "image "}
+map::before {content: "<map>"}
+area::before {content: "<area>"}
+picture::before {content: "<picture>"}
+audio::before {content: "<audio>"}
+video::before {content: "<video>"}
+track::before {content: "<track>"}
+source::before {content: "<source>"}
+img::before {content: "<image>"}
 
 /* END Image and multimedia */
 
 /* Embedded content */
-embed::before {content: "embed "}
-iframe::before {content: "iframe "}
-object::before {content: "object "}
-param::before {content: "param "}
-/* END Embedded content */
+embed::before {content: "<embed>"}
+iframe::before {content: "<iframe>"}
+object::before {content: "<object>"}
+param::before {content: "<param>"}
+/* END Embedded <content >*>/
 
 /* Scripting */
-canvas::before {content: "canvas "}
-noscript::before {content: "noscript "}
-script::before {content: "script "}
+canvas::before {content: "<canvas>"}
+noscript::before {content: "<noscript>"}
+script::before {content: "<script>"}
 /* END Scripting */
 
 /* Demarcating edits */
-del::before {content: "del "}
-ins::before {content: "ins "}
+del::before {content: "<del>"}
+ins::before {content: "<ins>"}
 /* END Demarcating edits */
 
 /* Table content */
-table::before {content: "table "}
-caption::before {content: "caption "}
-colgroup::before {content: "colgroup "}
-col::before {content: "col "}
-thead::before {content: "thead "}
-th::before {content: "th "}
-tbody::before {content: "tbody "}
-tr::before {content: "tr "}
-td::before {content: "td "}
-tfoot::before {content: "tfoot "}
+table::before {content: "<table>"}
+caption::before {content: "<caption>"}
+colgroup::before {content: "<colgroup>"}
+col::before {content: "<col>"}
+thead::before {content: "<thead>"}
+th::before {content: "<th>"}
+tbody::before {content: "<tbody>"}
+tr::before {content: "<tr>"}
+td::before {content: "<td>"}
+tfoot::before {content: "<tfoot>"}
 /* END Table content */
 
 /* Forms */
-form::before {content: "form "}
-fieldset::before {content: "fieldset "}
-legend::before {content: "legend "}
-label::before {content: "label "}
-input::before {content: "input "}
-output::before {content: "output "}
-textarea::before {content: "textarea "}
-meter::before {content: "meter "}
-progress::before {content: "progress "}
-datalist::before {content: "datalist "}
-select::before {content: "select "}
-optgroup::before {content: "optgroup "}
-option::before {content: "option "}
-button::before {content: "button "}
+form::before {content: "<form>"}
+fieldset::before {content: "<fieldset>"}
+legend::before {content: "<legend>"}
+label::before {content: "<label>"}
+input::before {content: "<input>"}
+output::before {content: "<output>"}
+textarea::before {content: "<textarea>"}
+meter::before {content: "<meter>"}
+progress::before {content: "<progress>"}
+datalist::before {content: "<datalist>"}
+select::before {content: "<select>"}
+optgroup::before {content: "<optgroup>"}
+option::before {content: "<option>"}
+button::before {content: "<button>"}
 /* END Forms */
 
 /* Interactive elements */
-summary::before {content: "summary "}
-details::before {content: "details "}
-dialog::before {content: "dialog "}
-menu::before {content: "menu "}
+summary::before {content: "summary"}
+details::before {content: "details"}
+dialog::before {content: "dialog"}
+menu::before {content: "menu"}
 /* END Interactive elements */
 
 /* Web components */
-template::before {content: "template "}
-slot::before {content: "slot "}
+template::before {content: "template"}
+slot::before {content: "slot"}
 /* END Web components */
 
 /* Obsolete and deprecated elements */
@@ -264,43 +211,53 @@ xmp {
   color: red;
 }
 
-acronym::before {content: "acronym deprecated "}
-applet::before {content: "applet deprecated "}
-basefont::before {content: "basefont deprecated "}
-bgsound::before {content: "bgsound deprecated "}
-big::before {content: "big deprecated "}
-blink::before {content: "blink deprecated "}
-center::before {content: "center deprecated "}
-command::before {content: "command deprecated "}
-content::before {content: "content deprecated "}
-dir::before {content: "dir deprecated "}
-element::before {content: "element deprecated "}
-font::before {content: "font deprecated "}
-frame::before {content: "frame deprecated "}
-frameset::before {content: "frameset deprecated "}
-image::before {content: "image deprecated "}
-isindex::before {content: "isindex deprecated "}
-keygen::before {content: "keygen deprecated "}
-listing::before {content: "listing deprecated "}
-marquee::before {content: "marquee deprecated "}
-menuitem::before {content: "menuitem deprecated "}
-multicol::before {content: "multicol deprecated "}
-nextid::before {content: "nextid deprecated "}
-nobr::before {content: "nobr deprecated "}
-noembed::before {content: "noembed deprecated "}
-noframes::before {content: "noframes deprecated "}
-plaintext::before {content: "plaintext deprecated "}
-shadow::before {content: "shadow deprecated "}
-spacer::before {content: "spacer deprecated "}
-strike::before {content: "strike deprecated "}
-tt::before {content: "tt deprecated "}
-xmp::before {content: "xmp deprecated "}
+acronym::before {content: "acronym deprecated"}
+applet::before {content: "applet deprecated"}
+basefont::before {content: "basefont deprecated"}
+bgsound::before {content: "bgsound deprecated"}
+big::before {content: "big deprecated"}
+blink::before {content: "blink deprecated"}
+center::before {content: "center deprecated"}
+command::before {content: "command deprecated"}
+content::before {content: "content deprecated"}
+dir::before {content: "dir deprecated"}
+element::before {content: "element deprecated"}
+font::before {content: "font deprecated"}
+frame::before {content: "frame deprecated"}
+frameset::before {content: "frameset deprecated"}
+image::before {content: "image deprecated"}
+isindex::before {content: "isindex deprecated"}
+keygen::before {content: "keygen deprecated"}
+listing::before {content: "listing deprecated"}
+marquee::before {content: "marquee deprecated"}
+menuitem::before {content: "menuitem deprecated"}
+multicol::before {content: "multicol deprecated"}
+nextid::before {content: "nextid deprecated"}
+nobr::before {content: "nobr deprecated"}
+noembed::before {content: "noembed deprecated"}
+noframes::before {content: "noframes deprecated"}
+plaintext::before {content: "plaintext deprecated"}
+shadow::before {content: "shadow deprecated"}
+spacer::before {content: "spacer deprecated"}
+strike::before {content: "strike deprecated"}
+tt::before {content: "tt deprecated"}
+xmp::before {content: "xmp deprecated"}
 /* END Obsolete and deprecated elements */
 /* END Generic rules */
 
 /* Attribute rules */
 /* Only selectors by attribute go there */
 
-input[type="button"]::before {content: "button "}
+input[type="button"]::before {content: "button <input>"}
+
+button[type="button"]::before {content: "button <button>"}
+
+button[type="submit"]::before {content: "submit <button>"}
+
+button[type="menu"]::before {content: "menu <button>"}
+
+button[type="reset"]::before {content: "reset <button>"}
 /* END Attribute rules */
+
+
 

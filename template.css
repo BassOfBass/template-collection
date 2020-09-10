@@ -6,10 +6,76 @@
 /* 
   Identical to the selector "html", except that its specificity is higher.
   Use it for global variable declarations only.
+  var is not supported by IE
 */
 :root {
-  --primary-color: black;
-  --secondary-color: white;
+  /* TODO: research on env() which is in Editor's Draft stage as of 2020-09-10 and no IE support */
+
+  /* var() is Candidate Recommendation as of 2020-09-10 and no IE support*/
+
+  /* HSLA Hue */
+  --hslh1: 0;
+  --hslh2: calc(var(--hslh1) + 60);
+  --hslh3: calc(var(--hslh2) + 60);
+  --hslh4: calc(var(--hslh3) + 60);
+  --hslh5: calc(var(--hslh4) + 60);
+  --hslh6: calc(var(--hslh5) + 60);
+
+  /* Saturation */
+  --hsls: 50%;
+  --hsls-rich: 75%;
+  --hsls-poor: 35%;
+
+  /* Lightness */
+  --hsll: 50%;
+  --hsll-light: 75%;
+  --hsll-dark: 35%;
+
+  /* Opacity */
+  --hslo: 100%;
+
+  --primary-color1: 
+    hsla(
+      var(--hslh1), 
+      var(--hsls), 
+      var(--hsll),
+      var(--hslo)
+    );
+  --primary-color2: 
+    hsla(
+      var(--hslh2), 
+      var(--hsls), 
+      var(--hsll),
+      var(--hslo)
+    );
+  --primary-color3: 
+    hsla(
+      var(--hslh3), 
+      var(--hsls), 
+      var(--hsll),
+      var(--hslo)
+    );
+  --primary-color4: 
+    hsla(
+      var(--hslh4), 
+      var(--hsls), 
+      var(--hsll),
+      var(--hslo)
+    );
+  --primary-color5: 
+    hsla(
+      var(--hslh5), 
+      var(--hsls), 
+      var(--hsll),
+      var(--hslo)
+    );
+  --primary-color6: 
+    hsla(
+      var(--hslh6), 
+      var(--hsls), 
+      var(--hsll),
+      var(--hslo)
+    );
 }
 
 /* 
@@ -80,26 +146,32 @@ hgroup {}
 */
 h1 {
   font-size: 2.2rem;
+  color: var(--primary-color1);
 }
 
 h2 {
   font-size: 2rem;
+  color: var(--primary-color2);
 }
 
 h3 {
   font-size: 1.8rem;
+  color: var(--primary-color3);
 }
 
 h4 {
   font-size: 1.6rem;
+  color: var(--primary-color4);
 }
 
 h5 {
   font-size: 1.4rem;
+  color: var(--primary-color5);
 }
 
 h6 {
   font-size: 1.2rem;
+  color: var(--primary-color6);
 }
 /* END Content sectioning */
 
@@ -320,6 +392,10 @@ textarea {
   min-height: 44px;
   border-radius: 5px;
   padding: 0.5em;
+  /* 
+    Large amounts of interactive content — including buttons — placed in close visual proximity to each other should have space separating them. This spacing is beneficial for people who are experiencing motor control issues, who may accidentally activate the wrong interactive content. 
+  */
+  margin: 1em;
 }
 
 form {}
@@ -442,9 +518,14 @@ option {}
 
 button {
   border: 1px solid gray;
-  border-radius: 5px;
-  padding: 0.5em;
   cursor: pointer;
+}
+
+button:hover {}
+button:active {
+  box-shadow: 
+    inset -2px -2px 3px rgba(255, 255, 255, .6),
+    inset 2px 2px 3px rgba(0, 0, 0, .6);
 }
 
 button:disabled,
@@ -538,19 +619,12 @@ label + input[type="file"] {
 /* END Attribute rules */
 
 /* Class rules */
-
 .gheader {
   width: 100%;
   padding: 0.5em;
   text-align: center;
 }
-
-.gheading {
-
-}
-
 /* END Class rules */
 
 /* ID rules */
-
 /* END ID rules */

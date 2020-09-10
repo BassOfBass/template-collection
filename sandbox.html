@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- need this meta to enable env() in CSS -->
+  <meta name="viewport" content="viewport-fit=cover">
   <!-- the below three lines are a fix to get HTML5 semantic elements working in old versions of Internet Explorer -->
     <!--[if lt IE 9]>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
@@ -10,20 +12,23 @@
   <!-- insert icon -->
   <link rel="shortcut icon" href="" type="image/x-icon">
   <!-- insert stylesheets -->
-  <link rel="stylesheet" href="/template.css">
-  <link rel="stylesheet" href="/sandbox.css">
+  <link rel="stylesheet" href="template.css">
+  <link rel="stylesheet" href="sandbox.css">
+  <link rel="stylesheet" href="sandboxclass.css">
   <meta name="author" content="">
   <meta name="description" content="">
   <script src="/template.js" defer></script>
   <!-- insert a title -->
-  <title>HTML template</title>
+  <title>Sandbox</title>
 </head>
 <body>
   <header class="gheader">
-    <h1 class="gheading"></h1>
+    <h1 class="gheading">Sandbox</h1>
     <nav class="gnav">
       <ul class="gnavlist">
-        <li class="gnavlistitem"><a href="/">Home</a></li>
+        <li><a class="gnavlink" href="/index.html">Home</a></li>
+        <li><a class="gnavlink" href="/template.html">Template</a></li>
+        <li><a class="gnavlink" href="/sandbox.html">Sandbox</a></li>
       </ul>
     </nav>
     <section class="gforms">
@@ -53,13 +58,79 @@
   </header>
   <main>
     <section>
-      <h2>Base selectors</h2>
+      <h1>Base selectors</h1>
+      <h1>Heading 1</h1>
+      <h2>Heading 2</h2>
+      <h3>Heading 3</h3>
+      <h4>Heading 4</h4>
+      <h5>Heading 5</h5>
+      <h6>Heading 6</h6>
+      <button>Button</button>
+      <form>
+        <fieldset>
+          <legend>Legend</legend>
+            <section>
+              <label>Label</label>
+              <input>
+            </section>
+        </fieldset>
+      </form>
+      <!-- 
+        You should generally set the size of the image using HTML attributes or DOM properties. You could use CSS, but the trouble then is that the sizing is done after the canvas has rendered, and just like any other image (the rendered canvas is just an image), the image could become pixellated/distorted. 
+      -->
+      <canvas width="360" height="240">Canvas</canvas>
     </section>
     <section>
-      <h2>Attribute selectors</h2>
+      <h1>Attribute selectors</h1>
+      <article>
+        <h3>Buttons</h3>
+        <!-- 
+          <button> elements are much easier to style than <input> elements. You can add inner HTML content (think <i>, <br>, or even <img>), and use "::after" and "::before" pseudo-elements for complex rendering. 
+        -->
+        <!--
+          If your buttons are not for submitting form data to a server, be sure to set their "type" attribute to "button". Otherwise they will try to submit form data and to load the (nonexistent) response, possibly destroying the current state of the document. 
+        -->
+        <button 
+          type="button"
+          autocomplete="off"
+        >
+        <!--  
+          Buttons that only show an icon to represent do not have an accessible name. Accessible names provide information for assistive technology, such as screen readers, to access when they parse the document and generate an accessibility tree. Assistive technology then uses the accessibility tree to navigate and manipulate page content.
+
+          To give an icon button an accessible name, put text in the <button> element that concisely describes the button's functionality.
+        -->
+        <!-- <svg aria-hidden="true" viewBox="0 0 10 10">
+          <path d="M7 9L5 8 3 9V6L1 4h3l1-3 1 3h3L7 6z"/>
+        </svg> -->
+          Normal button
+        </button>
+        <!-- 
+          A submit button with the attribute formaction set, but without an associated form does nothing. You have to set a form owner, either by wrapping it in a <form> or set the attribute form to the id of the form. 
+        -->
+        <button
+          type="submit"
+          form=""
+          formaction=""
+          formenctype=""
+          formmethod=""
+          formnovalidate
+          formtarget=""
+          name=""
+          value=""
+        >
+          Submit button
+        </button>
+        <button type="menu">
+          Menu button
+        </button>
+        <button type="reset">
+          Reset button
+        </button>
+      </article>
     </section>
     <section>
-      <h2>Class selectors</h2>
+      <h1>Class selectors</h1>
+
     </section>
   </main>
   <aside class="gaside"></aside>

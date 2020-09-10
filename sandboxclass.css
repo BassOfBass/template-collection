@@ -1,0 +1,10 @@
+/* Class rules */
+/*
+  Only selections by classes go there
+*/
+
+*[class]::before {
+  color: blue;
+}
+.gheader::before {content: "global header";}
+/* END Class rules */
