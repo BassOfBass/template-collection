@@ -398,7 +398,11 @@ textarea {
   margin: 1em;
 }
 
-form {}
+form {
+  border: 1px solid #CCC;
+  padding: 1em;
+  border-radius: 1em;
+}
 
 fieldset {
   margin: 0.5em;
@@ -425,11 +429,6 @@ input {
   Any currently enabled element that can be activated (selected, clicked on, typed into, etc.) or accept focus and also has a disabled state, in which it can't be activated or accept focus. 
 */
 input:enabled {}
-
-/* 
-  Any currently disabled element that has an enabled state, meaing it otherwise could be activated (selected, clicked on, typed into, etc.) or accept focus were it not disabled. 
-*/
-input:disabled {}
 
 /* 
   Element not editable by the user 
@@ -507,6 +506,8 @@ input:user-invalid {}
 */
 input::placeholder {}
 
+
+
 output {}
 textarea {}
 meter {}
@@ -528,12 +529,25 @@ button:active {
     inset 2px 2px 3px rgba(0, 0, 0, .6);
 }
 
+input:focus,
+textarea:focus {
+  /* 
+    Additional highlight for focused elements 
+  */
+  border-color: #000;
+}
+
 button:disabled,
 textarea:disabled,
 input:disabled,
 select:disabled {
   cursor: not-allowed;
 }
+
+/* 
+  Any currently disabled element that has an enabled state, meaing it otherwise could be activated (selected, clicked on, typed into, etc.) or accept focus were it not disabled. 
+*/
+input:disabled {}
 /* END Forms */
 
 /* Interactive elements */
@@ -591,6 +605,12 @@ a[href^="#"]:active {
   border-bottom: 1px solid;
 }
 /* END local link */
+
+input[type="checkbox"], 
+input[type="radio"] {
+  width: auto;
+  border: none;
+}
 
 /* Not supported by Internet Explorer */
 input[type="color"] {}
