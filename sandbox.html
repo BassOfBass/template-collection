@@ -83,7 +83,7 @@
     <section>
       <h1>Attribute selectors</h1>
       <article>
-        <h3>Buttons</h3>
+        <h2>Buttons</h2>
         <!-- 
           <button> elements are much easier to style than <input> elements. You can add inner HTML content (think <i>, <br>, or even <img>), and use "::after" and "::before" pseudo-elements for complex rendering. 
         -->
@@ -126,6 +126,94 @@
         <button type="reset">
           Reset button
         </button>
+      </article>
+      <article>
+        <h2>Inputs</h2>
+        <!--  
+          Several radio buttons can be tied together. If they share the same value for their `name` attribute, they will be considered to be in the same group of buttons. Only one button in a given group may be checked at a time; this means that when one of them is checked all the others automatically get unchecked. When the form is sent, only the value of the checked radio button is sent. If none of them are checked, the whole pool of radio buttons is considered to be in an unknown state and no value is sent with the form. Once one of the radio buttons in a same-named group of buttons is checked, it is not possible for the user to uncheck all of the buttons without resetting the form.
+        -->
+        <form action="">
+          <fieldset>
+            <legend>What is your favorite meal?</legend>
+            <ul>
+              <li>
+                <label for="soup">Soup</label>
+                <input type="radio" id="soup" name="meal" value="soup" checked>
+              </li>
+              <li>
+                <label for="curry">Curry</label>
+                <input type="radio" id="curry" name="meal" value="curry">
+              </li>
+              <li>
+                <label for="pizza">Pizza</label>
+                <input type="radio" id="pizza" name="meal" value="pizza">
+              </li>
+            </ul>
+          </fieldset>
+        </form>
+        <form action="">
+          <!-- 
+            If the image button is used to submit the form, this control doesn't submit its value — instead, the X and Y coordinates of the click on the image are submitted (the coordinates are relative to the image, meaning that the upper-left corner of the image represents the coordinate (0, 0)). The coordinates are sent as two key/value pairs:
+
+              The X value key is the value of the name attribute followed by the string ".x".
+              The Y value key is the value of the name attribute followed by the string ".y".
+
+            So for example when you click on the image at coordinate (123, 456) and it submits via the get method, you'll see the values appended to the URL as follows:
+            http://foo.com?pos.x=123&pos.y=456
+          -->
+          <input type="image" alt="Click me!" src="my-img.png" width="80" height="30">
+        </form>
+        <form action="">
+          <input type="file" name="file" id="file" accept="image/*" multiple>
+          <!-- 
+            On some mobile devices, the file picker can access photos, videos, and audio captured directly by the device's camera and microphone by adding capture information to the accept attribute like so: 
+          -->
+          <input type="file" accept="image/*;capture=camera">
+          <input type="file" accept="video/*;capture=camcorder">
+          <input type="file" accept="audio/*;capture=microphone">
+        </form>
+        <form action="">
+          <fieldset>
+            <legend>Common attributes</legend>
+            <input 
+              type="text"
+              autofocus
+              disabled
+              form=""
+              name=""
+              value=""
+            >
+          </fieldset>
+        </form>
+      </article>
+      <article>
+        <h2>Overlapping Submit and Button tags</h2>
+        <form>
+          <p>
+            <button type="submit">
+              This a <br><strong>submit button</strong>
+            </button>
+          </p>
+          <p>
+            <input type="submit" value="This is a submit button">
+          </p>
+          <p>
+            <button type="reset">
+                This a <br><strong>reset button</strong>
+            </button>
+          </p>
+          <p>
+            <input type="reset" value="This is a reset button">
+          </p>
+          <p>
+            <button type="button">
+                This an <br><strong>anonymous button</strong>
+            </button>
+          </p>
+          <p>
+            <input type="button" value="This is an anonymous button">
+          </p>
+      </form>
       </article>
     </section>
     <section>
