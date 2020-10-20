@@ -6,76 +6,10 @@
 /* 
   Identical to the selector "html", except that its specificity is higher.
   Use it for global variable declarations only.
-  var is not supported by IE
+  var() is not supported by IE
 */
 :root {
-  /* TODO: research on env() which is in Editor's Draft stage as of 2020-09-10 and no IE support */
-
-  /* var() is Candidate Recommendation as of 2020-09-10 and no IE support*/
-
-  /* HSLA Hue */
-  --hslh1: 0;
-  --hslh2: calc(var(--hslh1) + 60);
-  --hslh3: calc(var(--hslh2) + 60);
-  --hslh4: calc(var(--hslh3) + 60);
-  --hslh5: calc(var(--hslh4) + 60);
-  --hslh6: calc(var(--hslh5) + 60);
-
-  /* Saturation */
-  --hsls: 50%;
-  --hsls-rich: 75%;
-  --hsls-poor: 35%;
-
-  /* Lightness */
-  --hsll: 50%;
-  --hsll-light: 75%;
-  --hsll-dark: 35%;
-
-  /* Opacity */
-  --hslo: 100%;
-
-  --primary-color1: 
-    hsla(
-      var(--hslh1), 
-      var(--hsls), 
-      var(--hsll),
-      var(--hslo)
-    );
-  --primary-color2: 
-    hsla(
-      var(--hslh2), 
-      var(--hsls), 
-      var(--hsll),
-      var(--hslo)
-    );
-  --primary-color3: 
-    hsla(
-      var(--hslh3), 
-      var(--hsls), 
-      var(--hsll),
-      var(--hslo)
-    );
-  --primary-color4: 
-    hsla(
-      var(--hslh4), 
-      var(--hsls), 
-      var(--hsll),
-      var(--hslo)
-    );
-  --primary-color5: 
-    hsla(
-      var(--hslh5), 
-      var(--hsls), 
-      var(--hsll),
-      var(--hslo)
-    );
-  --primary-color6: 
-    hsla(
-      var(--hslh6), 
-      var(--hsls), 
-      var(--hsll),
-      var(--hslo)
-    );
+  --base-font-size: 16px;
   --anchor-colour: 100;
 }
 
@@ -83,11 +17,14 @@
   Set base font and the box sizing property 
 */
 html {
+  /* required for sticky global footer */
+  height: 100%;
   /* 
     Sets font size property which then becomes a basis for "rem" units 
   */
-  font: 16px Helvetica, Arial, sans-serif;
+  font: var(--base-font-size) Helvetica, Arial, sans-serif;
   box-sizing: border-box;
+  
   margin: 0;
   padding: 0;
 }
@@ -100,6 +37,11 @@ html {
 }
 
 body {
+  /* setup for sticky global footer */
+  display: flex;
+  flex-flow: column nowrap;
+  position: relative;
+  min-height: 100%;
   color: hsl(0, 0%, 20%);
   padding: 0;
   margin: 0;
@@ -177,7 +119,12 @@ h6 {
 /* END Content sectioning */
 
 /* Text content */
-main {}
+main {
+  flex: 1 0 auto;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
 
 /* 
   Set consistent line height across several text elements 
