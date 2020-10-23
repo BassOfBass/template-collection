@@ -1,0 +1,114 @@
+/* Generic rules */
+// only rules applying to base tags go there
+
+/* 
+  Identical to the selector "html", except that its specificity is higher.
+  Use it for global variable declarations only.
+  var() is not supported by IE
+*/
+:root {
+  --base-font-size: 16px;
+  --primary-font-size: var(--base-font-size);
+  --base-colour: 0;
+  --primary-colour: 0;
+  --secondary-colour: 0;
+  // links
+  --base-anchor-colour: 120;
+  --primary-anchor-colour: 120;
+  --secondary-anchor-colour: 120;
+  // a[href^="#"] links
+  --base-local-anchor-colour: 180;
+  --primary-local-anchor-colour: 180;
+  --secondary-local-anchor-colour: 180;
+  // buttons
+  --base-button-colour: 240;
+  --primary-button-colour: 240;
+  --secondary-button-colour: 240;
+  // durations (for transitions, transforms, etc)
+  --base-duration: 0;
+  --no-duration: 0;
+  --fast-duration: 0.25s;
+  --normal-duration: 0.5s;
+  --slow-duration: 1s;
+
+}
+
+// set base font and the box sizing property
+html {
+  // required for sticky global footer 
+  height: 100%;
+  // set font size property which then becomes a basis for "rem" units 
+  font: var(--base-font-size) Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+// Inherit box sizing from base to everything else 
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  // setup for sticky global footer 
+  display: flex;
+  flex-flow: column nowrap;
+  position: relative;
+  min-height: 100%;
+  color: hsl(0, 0%, 20%);
+  background-color: hsl(0, 0%, 80%);
+  padding: 0;
+  margin: 0;
+}
+
+/* Content sectioning */
+// Style semantic tags for older browsers 
+article, 
+aside, 
+footer, 
+header, 
+nav, 
+section {
+  display: block;
+}
+
+/* END Content sectioning */
+
+/* Text content */
+main {
+  flex: 1 0 auto;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+// set consistent line height across several text elements 
+p,
+li,
+dt,
+dd {
+  line-height: 1.5;
+}
+
+a {
+  outline: none;
+  text-decoration: none;
+  transition-duration: var(--base-duration);
+
+  &:link {
+    color: hsl(var(--primary-anchor-colour), 100%, 50%);
+    background-color: hsl(var(--secondary-anchor-colour), 50%, 75%);
+  }
+
+  // &:visited {}
+  // &:focus {}
+  &:hover {
+    border-bottom: 1px solid;
+  }
+  // &:active {}
+
+}
+
+/* END Text content */
+
+/* END Generic rules */

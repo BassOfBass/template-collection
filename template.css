@@ -164,7 +164,6 @@ a:link {
   color: hsla(var(--anchor-colour), 100%, 20%, 100%);
   outline: none;
   text-decoration: none;
-  padding: 2px 1px 0;
   transition-duration: 0.5s;
 }
 
@@ -184,9 +183,6 @@ a:visited {
   color: hsla(var(--anchor-colour), 70%, 30%, 100%);
 }
 
-/* 
-  Combine focus and hover together. 
-*/
 a:focus {
   background: hsla(var(--anchor-colour), 60%, 80%, 100%);
 }
