@@ -1,3 +1,13 @@
+// prevents hsl() and hsla() values from being converted to RGB on SASS compilation
+// code is stolen from https://github.com/meduzen/true-hsl.scss because I don't want to add yet another dependency just for 2 functions
+@function hsl($args...) {
+  @return #{'hsl(#{$args})'};
+}
+
+@function hsla($args...) {
+  @return hsl($args...);
+}
+
 /* Generic rules */
 // only rules applying to base tags go there
 
