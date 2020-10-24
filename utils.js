@@ -16,14 +16,3 @@ export function degToRad(degrees) {
 export function rollRandom(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + (min);
 }
-
-/* Node.js */
-
-/**
- * `__dirname` variable is not available with ES6 modules, so it has to be created manually.
- */
-export create__dirname() {
-  const __dirname = path.dirname(new URL(import.meta.url).pathname); 
-  
-  return __dirname;
-}
