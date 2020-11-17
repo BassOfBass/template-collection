@@ -1,0 +1,842 @@
+/*
+  `Normalize.css` is already merged into this file, almost all `//` comments on the side are from normalize
+  ! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css 
+*/
+
+/* Generic rules */
+// only rules applying to base tags and their pseudo-selectors/elements go there
+
+:root {
+  // base colours
+  --colour0-primary:hsl(0, 0%, 15%);
+  --colour0-secondary: hsl(0, 0%, 85%);
+
+  // links
+  --anchor-base-colour: 120;
+  --anchor-primary-colour: hsl(120, 80%, 40%);
+  --anchor-secondary-colour: hsl(120, 100%, 95%);
+  // local links
+  --anchor-local-base-colour: 270;
+  --anchor-local-primary-colour: hsl(270, 80%, 50%);
+  --anchor-local-secondary-colour: hsl(270, 100%, 95%);
+
+  // buttons
+  --positive-colour: 120;
+  --negative-colour: 0;
+  --submit-colour: 220;
+
+   // widths
+   --mobile-width: 360px;
+   --tablet-width: 720px;
+   --desktop-width: 1080px;
+   --input-min-height: 44px;
+   --input-min-width: 44px;
+
+   // durations for transition and transform properties
+  --duration-none: 0;
+  --duration-fast: 0.25s;
+  --duration-norm: 0.5s;
+  --duration-slow: 1s;
+  --duration-global: var(--duration-norm);
+}
+
+// Set base font and the box sizing property 
+html {
+  box-sizing: border-box;
+  // prep fpr sticky footer
+  height: 100%;
+  // Sets font size property which then becomes a basis for "rem" units 
+  font: 16px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1.15; // Correct the line height in all browsers.
+  -webkit-text-size-adjust: 100%; // Prevent adjustments of font size after orientation changes in iOS.
+  padding: 0;
+  margin: 0;
+}
+
+// Inherit box sizing from base to everything else 
+*, 
+*::before, 
+*::after {
+  box-sizing: inherit;
+  transition-duration: var(--duration-global);
+}
+
+body {
+  display: flex;
+  flex-flow: column nowrap;
+  min-height: 100%;
+  color: var(--colour0-primary);
+  background: var(--colour0-secondary);
+  padding: 0;
+  margin: 0; // Remove the margin in all browsers.
+}
+
+/* Content sectioning */
+
+main {
+  flex: 1 1 auto;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+// Style semantic tags for older browsers 
+article, 
+aside, 
+footer, 
+header, 
+nav, 
+section {
+  display: block;
+}
+
+article {
+  padding: 0.5em;
+}
+
+h1 {
+  // Correct the font size and margin on `h1` elements within `section` and `article` contexts in Chrome, Firefox, and Safari.
+  font-size: 2.2rem;
+  text-transform: capitalize;
+  padding: 0;
+  margin: 0;
+}
+
+h2 {
+  font-size: 2rem;
+  padding: 0;
+  margin: 0;
+}
+
+h3 {
+  font-size: 1.8rem;
+  padding: 0;
+  margin: 0;
+}
+
+h4 {
+  font-size: 1.6rem;
+  padding: 0;
+  margin: 0;
+}
+
+h5 {
+  font-size: 1.4rem;
+  padding: 0;
+  margin: 0;
+}
+
+h6 {
+  font-size: 1.2rem;
+  padding: 0;
+  margin: 0;
+}
+
+/* END Content sectioning */
+
+/* Text content */
+
+// Set consistent line height across several text elements 
+p,
+li,
+dt,
+dd {
+  line-height: 1.5;
+}
+
+ul, 
+ol {
+  padding: 0 0 0 1em;
+  margin: 0;
+}
+
+ol {
+  list-style-position: outside;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  text-align: inherit;
+}
+
+li > ul > li,
+li > ol > li {
+  font-size: 0.9em;
+}
+
+details {
+  display: block; // Add the correct display in Edge, IE 10+, and Firefox.
+}
+
+summary {
+  display: list-item; // Add the correct display in all browsers.
+}
+
+/* END Text content */
+
+/* Inline text semantics */
+
+a {
+  text-decoration: none;
+  background-color: transparent; // remove the gray background on active links in IE 10.
+  outline: none;
+  transition: all var(--duration-global);
+  padding: 0.25em;
+
+  &:link {
+    color: hsl(var(--base-anchor-colour), 80%, 40%);
+    text-shadow: 0 0 1px var(--colour0-primary);
+  }
+  
+  /* 
+    Only the following styles can be applied to visited links: 
+  
+    "color"
+    "background-color"
+    "border-color" (and its sub-properties)
+    "column-rule-color"
+    "outline-color"
+    The color parts of the "fill" and "stroke" attributes
+  
+    In addition, even for the above styles, you won't be able to change the transparency between unvisited and visited links, as you otherwise would be able to using rgba(), hsla(), or the transparent keyword.
+  */
+  &:visited {
+    color: hsl(var(--base-anchor-colour), 60%, 30%);
+  }
+  
+  &:focus,
+  &:hover {
+    color: hsl(var(--base-anchor-colour), 90%, 40%);
+    background-color: hsl(var(--base-anchor-colour), 100%, 95%);
+    /* 
+      border-bottom has better styling options than than text-decoration 
+      no color specified means it will adopt font color
+    */
+    border-bottom: 1px solid;
+    cursor: pointer;
+  }
+  
+  &:active {
+    color: hsl(var(--base-anchor-colour), 100%, 95%);
+    background-color: hsl(var(--base-anchor-colour), 90%, 40%);
+  }
+}
+
+// abbr {}
+// dfn {}
+
+b,
+strong {
+  font-weight: bolder; // Add the correct font weight in Chrome, Edge, and Safari.
+}
+
+code,
+kbd,
+samp,
+pre {
+  font-family: monospace, monospace; // Correct the inheritance and scaling of font size in all browsers.
+  font-size: 1em; // Correct the odd `em` font sizing in all browsers.
+}
+
+// b {}
+
+/* Not supported in Safari and IE */
+// bdi {}
+// bdo {}
+
+hr {
+  box-sizing: content-box; // Add the correct box sizing in Firefox.
+  height: 0; // Add the correct box sizing in Firefox.
+  overflow: visible; // Show the overflow in Edge and IE.
+}
+
+// br {}
+// code {}
+
+// pre {}
+
+// cite {}
+
+/* Not supported in IE */
+// data {}
+
+/* 
+  Can be nested, with each level of nesting indicating a greater degree of emphasis. 
+*/
+// em {}
+// i {}
+
+/* 
+  May be nested in various combinations with the <samp> (Sample Output) element to represent various forms of input or output based on visual cues. 
+*/
+// kbd {}
+
+// mark {}
+// q {}
+// ruby {}
+// rt {}
+// rb {}
+// rp {}
+
+/* Only supported in Firefox */
+// rtc {}
+
+// rbc {}
+// s {}
+// samp {}
+
+small {
+  font-size: 80%; // Add the correct font size in all browsers.
+}
+
+// span {}
+// strong {}
+
+// Prevent `sub` and `sup` elements from affecting the line height in all browsers.
+sub, 
+sup { 
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/* 
+  If the element does not have a datetime attribute, it must not have any element descendants, and the datetime value is the element’s child text content. 
+*/
+/* Not supported by Internet Explorer */
+// time {}
+
+u {
+  text-decoration: #f00 wavy underline;
+}
+
+/* Not supported in IE 7+ */
+// wbr {}
+
+/* Demarcating edits */
+// del {}
+// ins {}
+/* END Demarcating edits */
+
+/* END Inline text semantics */
+
+/* Image and multimedia */
+img,
+picture,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+img {
+  border-style: none; // Remove the border on images inside links in IE 10.
+}
+
+/* END Image and multimedia */
+
+/* Embedded content */
+/* END Embedded content */
+
+/* Scripting */
+/* END Scripting */
+
+/* Table content */
+
+table {
+  border-collapse: collapse;
+}
+
+th, 
+td {
+  padding: 0.25em;
+  text-align: start;
+}
+/* END Table content */
+
+/* Forms */
+button, 
+input, 
+optgroup,
+select, 
+textarea { 
+  box-sizing: border-box;
+  /* 
+    Interactive elements such as form input should provide an area large enough that it is easy to activate them. This helps a variety of people, including people with motor control issues and people using non-precise forms of input such as a stylus or fingers. A minimum interactive size of 44×44 CSS pixels is recommended. 
+  */
+  min-width: 44px;
+  width: 100%;
+  max-width: var(--mobile-width);
+  min-height: 44px;
+  font-family: inherit; // Change the font styles in all browsers.
+  font-size: 100%; // Change the font styles in all browsers.
+  line-height: 1.15; // Change the font styles in all browsers.
+  border-radius: 5px;
+  padding: 0.5em;
+  /* 
+    Large amounts of interactive content — including buttons — placed in close visual proximity to each other should have space separating them. This spacing is beneficial for people who are experiencing motor control issues, who may accidentally activate the wrong interactive content. 
+  */
+  margin: 1em 0; 
+}
+
+button,
+input {
+  overflow: visible; // Show the overflow in Edge.
+}
+
+button, 
+select {
+  text-transform: none; // Remove the inheritance of text transform in Firefox.
+}
+
+input,
+textarea {
+  color: hsl(0, 0%, 0%);
+  /* 
+    A property specific to text entry-related elements is the CSS caret-color property, which lets you set the color used to draw the text input caret: 
+  */
+  caret-color: inherit;
+  background-color: hsl(0, 0%, 100%);
+}
+
+form {
+  max-width: var(--mobile-width);
+  border: 1px solid var(--colour0-primary);
+  padding: 1em;
+  border-radius: 1em;
+}
+
+fieldset {
+  padding: 0.35em 0.75em 0.625em; // Correct the padding in Firefox.
+}
+
+legend {
+  display: table; // Correct the text wrapping in Edge and IE.
+  box-sizing: border-box; // Correct the text wrapping in Edge and IE.
+  max-width: 100%; // Correct the text wrapping in Edge and IE.
+  color: inherit; // Correct the color inheritance from `fieldset` elements in IE.
+  white-space: normal; // Correct the text wrapping in Edge and IE.
+  border: 1px solid;
+  padding: 0.5em; // Remove the padding so developers are not caught out when they zero out `fieldset` elements in all browsers.
+}
+
+label {
+  color: var(--colour0-primary);
+  padding: 0.5em;
+  cursor: pointer;
+}
+
+input {
+  border: 2px solid transparent; 
+  transition: var(--duration-global);
+
+  /* 
+    Any currently enabled element that can be activated (selected, clicked on, typed into, etc.) or accept focus and also has a disabled state, in which it can't be activated or accept focus. 
+  */
+  // &:enabled {}
+
+  // Element not editable by the user 
+  // &:read-only {}
+  
+  // Element that is editable by the user. 
+  // &:read-write {}
+  
+  /* 
+    Element that is currently displaying placeholder text, including <input> and <textarea> elements with the placeholder attribute present that has, as of yet, no value. 
+  */
+  // &:placeholder-shown {}
+  
+  /* 
+    Form elements that are the default in a group of related elements. Matches checkbox and radio input types that were checked on page load or render. 
+  */
+  // &:default {}
+  
+  /* 
+    Matches "checkbox" and "radio" input types that are currently checked (and the <option> in a <select> that is currently selected). 
+  */
+  // &:checked {}
+  
+  /* 
+    "checkbox" elements whose indeterminate property is set to true by JavaScript, "radio" elements, when all radio buttons with the same name value in the form are unchecked, and <progress> elements in an indeterminate state 
+  */
+  // &:indeterminate {}
+  
+
+
+  /* 
+    <input>, <select>, or <textarea> element that has the required attribute set on it. Only matches elements that can be required. The attribute included on a non-requirable element will not make for a match. 
+  */
+  &:required {
+    box-shadow: 0 0 3px 3px hsl(var(--submit-colour), 100%, 50%);
+  }
+
+  &:focus {
+    box-shadow: 0 0 5px 5px hsl(var(--submit-colour), 100%, 50%);
+  }
+
+  /* 
+    Form controls that have constraint validation applied and are currently not valid. Matches a form control whose value doesn't match the constraints set on it by it's attributes, such as "required", "pattern", "step" and "max". 
+  */
+  &:invalid {
+    border-color: hsl(var(--negative-colour), 100%, 50%);
+  }
+
+  /* 
+    Form controls that can have constraint validation applied and are currently valid. 
+  */
+  &:valid {
+    border-color: hsl(var(--positive-colour), 100%, 50%);
+  }
+  
+  
+  /* 
+    A non-empty input whose current value is within the range limits specified by the "min" and "max" attributes and the "step". 
+  */
+  // &:in-range {}
+  
+  /* 
+    A non-empty input whose current value is NOT within the range limits specified by the "min" and "max" attributes or does not adher to the "step" constraint. 
+  */
+  // &:out-of-range {}
+  
+  
+  
+  /* 
+    <input>, <select>, or <textarea> element that does NOT have the required attribute set on it. Does not match elements that can't be required. 
+  */
+  // &:optional {}
+  
+  /* 
+    <input> and <textarea> elements that currently have no value. 
+  */
+  // &:blank {}
+  
+  /* 
+    Similar to :invalid, but is activated on blur. Matches invalid input but only after the user interaction, such as by focusing on the control, leaving the control, or attempting to submit the form containing the invalid control. 
+  */
+  // &:user-invalid {}
+  
+  /* 
+    Only the subset of CSS properties that apply to the ::first-line pseudo-element can be used in a rule using ::placeholder in its selector. 
+  */
+  // &::placeholder {}
+
+  /* 
+    Any currently disabled element that has an enabled state, meaing it otherwise could be activated (selected, clicked on, typed into, etc.) or accept focus were it not disabled. 
+  */
+  // &:disabled {}
+}
+
+textarea {
+  overflow: auto; // Remove the default vertical scrollbar in IE 10+.
+}
+
+progress {
+  vertical-align: baseline; // Add the correct vertical alignment in Chrome, Firefox, and Opera.
+}
+
+button {
+  color: var(--colour0-primary);
+  background-color: var(--colour0-secondary);
+  border: 1px solid;
+  cursor: pointer;
+  -webkit-appearance: button; // Correct the inability to style clickable types in iOS and Safari.
+  
+  // Remove the inner border and padding in Firefox.
+  &::-moz-focus-inner {
+    border-style: none;
+    padding: 0;
+  }
+
+  // Restore the focus styles unset by the previous rule.
+  &::-moz-focusring {
+    outline: 1px dotted ButtonText;
+  }
+
+  // &:hover {}
+  // &:focus {}
+  &:active {
+    box-shadow: 
+      inset -2px -2px 3px hsla(0, 0%, 100%, 0.6),
+      inset 2px 2px 3px hsla(0, 0%, 0%, 0.6);
+  }
+}
+
+*::-webkit-file-upload-button {
+  -webkit-appearance: button; // Correct the inability to style clickable types in iOS and Safari.
+  font: inherit; // Change font properties to `inherit` in Safari.
+}
+
+button:disabled,
+textarea:disabled,
+input:disabled,
+select:disabled {
+  cursor: not-allowed;
+}
+
+/* END Forms */
+
+/* Interactive elements */
+/* END Interactive elements */
+
+/* Web components */
+template {
+  display: none; // Add the correct display in IE 10+.
+}
+/* END Web components */
+
+/* END Generic rules */
+
+/* Attribute rules */
+// Only selectors by attribute go there 
+
+*[hidden] {
+  display: none; // Add the correct display in IE 10.
+}
+
+// external unprotected link
+// a[href*="http"] {}
+
+// external protected link
+// a[href*="https"] {}
+
+/* local link */
+a[href^="#"] {
+  
+  // No point for separate visited state
+  &:link,
+  &:visited {
+    color: hsl(var(--base-anchor-colour), 80%, 40%);
+  }
+
+  &:focus,
+  &:hover {
+    color: hsl(var(--base-anchor-colour), 80%, 50%);
+    background-color: hsl(var(--base-anchor-colour), 100%, 95%);
+  }
+
+  &:active {
+    color: hsl(var(--base-anchor-colour), 100%, 95%);
+    background-color: hsl(var(--base-anchor-colour), 80%, 50%);
+  }
+}
+/* END local link */
+
+button,
+input {
+
+  &[type="button"],
+  &[type="reset"],
+  &[type="submit"] {
+    -webkit-appearance: button; // Correct the inability to style clickable types in iOS and Safari.
+  }
+
+  // Remove the inner border and padding in Firefox.
+  &[type="button"]::-moz-focus-inner,
+  &[type="reset"]::-moz-focus-inner,
+  &[type="submit"]::-moz-focus-inner {
+    border-style: none;
+    padding: 0;
+  }
+  // Restore the focus styles unset by the previous rule.
+  &[type="button"]:-moz-focusring,
+  &[type="reset"]:-moz-focusring,
+  &[type="submit"]:-moz-focusring {
+    outline: 1px dotted ButtonText;
+  }
+}
+
+abbr {
+
+  &[title] {
+    border-bottom: none; // remove the bottom border in Chrome 57-
+    text-decoration: underline; // Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+    text-decoration: underline dotted; // Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+  }
+}
+
+input {
+
+  &[type="checkbox"],
+  &[type="radio"] {
+    box-sizing: border-box; // Add the correct box sizing in IE 10.
+    width: auto;
+    border: none;
+    // padding: 0; // Remove the padding in IE 10 but break custom radios
+    cursor: pointer;
+  }
+
+  &[type="number"]::-webkit-inner-spin-button,
+  &[type="number"]::-webkit-outer-spin-button {
+    height: auto; // Correct the cursor style of increment and decrement buttons in Chrome.
+  }
+
+  &[type="search"] {
+    -webkit-appearance: textfield; // Correct the odd appearance in Chrome and Safari.
+    outline-offset: -2px; // Correct the outline style in Safari.
+
+    &::-webkit-search-decoration {
+      -webkit-appearance: none; // Remove the inner padding in Chrome and Safari on macOS.
+    }
+  }
+
+  // &[type="color"] {}
+  
+  // &[type="date"] {}
+  
+  // &[type="datetime-local"] {}
+  
+  // &[type="month"] {}
+
+}
+
+/* 
+  Make file input completely transparent due to limited styling, but not hide it for accesibility reasons. Its label gets "fileinput" class and styled as a button instead.
+*/
+label + input[type="file"] {
+  opacity: 0;
+}
+
+button {
+
+  &[type="submit"] {
+    color: hsl(var(--submit-colour), 100%, 25%);
+    background-color: hsl(var(--submit-colour), 80%, 70%);
+
+    transition-duration: var(--duration-global);
+
+    &:hover {
+      color: hsl(var(--submit-colour), 100%, 25%);
+      background-color: hsl(var(--submit-colour), 80%, 60%);
+    }
+
+    &:active {
+      color: hsl(var(--submit-colour), 80%, 70%);
+      background-color: hsl(var(--submit-colour), 100%, 25%);
+    }
+  }
+}
+
+/* Attribute [class=""] rules */
+/* END Attribute [class=""] rules */
+/* Attribute [id=""] rules */
+/* END Attribute [id=""] rules */
+/* END Attribute rules */
+
+/* Class rules */
+
+// skip to main button
+.gskip {
+  position: absolute;
+  left: 50%;
+  height: 30px;
+  background: hsl(30, 80%, 70%);
+  padding: 0.25em;
+  transform: translateY(-100%);
+  transition: transform 0.3s;
+
+  &:focus {
+    transform: translateY(0%);
+  }
+}
+
+// global header
+.gheader {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  font-size: 1.5rem;
+  border-bottom: 2px solid var(--colour0-primary);
+  padding: 0 1em;
+
+  // top part
+  & .gtop {
+    display: inline-flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  // logo link
+  & .glogo {
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    // shadow so it wouldn't blend with bg colour
+    text-shadow: 0 0 2px var(--colour0-primary);
+    
+    // &:link {}
+    // &:visited {}
+    // &:focus,
+    // &:hover {}
+    // &:active {}
+  }
+
+  // global search
+  & .gsearch {
+    display: flex;
+    flex-flow: row nowrap;
+    border: none;
+    padding: 0;
+    margin: 0;
+
+    // input container
+    & > div:first-child {
+      flex: 1 1 auto;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+    }
+
+    // submit button container
+    & > div:last-child {
+      flex: 0 0 auto;
+    }
+  }
+
+  // nav bar
+  & .gnav {
+
+    & > ul {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-evenly;
+    }
+  }
+}
+
+// global footer
+.gfooter {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border-top: 2px solid var(--colour0-primary);
+  padding: 1em;
+
+  // dark/light mode switcher
+  & .glightswitch {
+    width: auto;
+    border-radius: 50%;
+    padding: 0.5em;
+    margin: 0;
+  }
+}
+
+// .localnav {}
+/* END Class rules */
+
+/* ID rules */
+/* END ID rules */
