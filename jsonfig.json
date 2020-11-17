@@ -4,6 +4,8 @@
     "module": "es6",
     "target": "es6",
     "checkJs": true,
+    "jsx": "react",
+    "moduleResolution": "node",
     "allowSyntheticDefaultImports": true
   },
   "exclude": ["node_modules", "**/node_modules/*"]
