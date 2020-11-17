@@ -13,6 +13,6 @@ export function degToRad(degrees) {
  * @param {number} min
  * @param {number} max
  */
-function rollRandom(min, max) {
+export function rollRandom(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + (min);
 }
