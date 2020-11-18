@@ -1,0 +1,181 @@
+//- The form with all possible values of autocomplete attribute. 
+//- Source: https://cloudfour.com/thinks/autofill-what-web-devs-should-know-but-dont/#the-final-form
+
+//- In order to provide autocompletion, user-agents might require `<input>`/`<select>`/`<textarea>` elements to:
+//- 
+//- Have a `name` and/or `id` attribute
+//- Be descendants of a `<form>` element
+//- The form to have a submit button
+
+
+form#autoform(method="POST", autocomplete="on")
+  fieldset #[legend Name and Company]
+    div
+      label(for="name") Name
+      input#name(type="text", name="name", autocomplete="name")
+    div
+      label(for="honorific-prefix") Honorific Prefix (e.g. "Mr.", "Ms.", "Dr.", "Mlle")
+      input#honorific-prefix(type="text", name="honorific-prefix", autocomplete="honorific-prefix")
+    div
+      label(for="given-name") Given Name
+      input#given-name(type="text", name="given-name", autocomplete="given-name")
+    div
+      label(for="additional-name") Additional Name
+      input#additional-name(type="text", name="additional-name", autocomplete="additional-name")
+    div
+      label(for="family-name") Family Name
+      input#family-name(type="text", name="family-name", autocomplete="family-name")
+    div
+      label(for="honorific-suffix") Honorific Suffix (e.g. "Jr.", "B.Sc.", "MBASW", "II")
+      input#honorific-suffix(type="text", name="honorific-suffix", autocomplete="honorific-suffix")
+    div
+      label(for="nickname") Nickname
+      input#nickname(type="text", name="nickname", autocomplete="nickname")
+    div
+      label(for="organization-title") Job Title
+      input#organization-title(type="text", name="organization-title", autocomplete="organization-title")
+    div
+      label(for="organization") Organization
+      input#organization(type="text", name="organization", autocomplete="organization")
+  fieldset #[legend Credentials]
+    div
+      label(for="username") Username
+      input#username(type="text", name="username", autocomplete="username")
+    div
+      label(for="new-password") New Password
+      input#new-password(type="password", name="new-password", autocomplete="new-password")
+    div
+      label(for="current-password") Current Password
+      input#current-password(type="password", name="current-password", autocomplete="current-password")
+  fieldset #[legend Shipping Address]
+    div
+      label(for="street-address") Street Address
+      textarea#street-address(type="text", name="street-address", autocomplete="shipping street-address")
+    div
+      label(for="address-line1") Address Line 1
+      input#address-line1(type="text", name="address-line1", autocomplete="shipping address-line1")
+    div
+      label(for="address-line2") Address Line 2
+      input#address-line2(type="text", name="address-line2", autocomplete="shipping address-line2")
+    div
+      label(for="address-line3") Address Line 3
+      input#address-line3(type="text", name="address-line3", autocomplete="shipping address-line3")
+    div
+      label(for="address-level4") Address Level 4
+      input#address-level4(type="text", name="address-level4", autocomplete="shipping address-level4")
+    div
+      label(for="address-level3") Address Level 3
+      input#address-level3(type="text", name="address-level3", autocomplete="shipping address-level3")
+    div
+      label(for="address-level2") City (Address Level 2)
+      input#address-level2(type="text", name="address-level2", autocomplete="shipping address-level2")
+    div
+      label(for="address-level1") State/Province (Address Level 1)
+      input#address-level1(type="text", name="address-level1", autocomplete="shipping address-level1")
+    div
+      label(for="country") Country Code
+      input#country(type="text", name="country", autocomplete="shipping country")
+    div
+      label(for="country-name") Country Name
+      input#country-name(type="text", name="country-name", autocomplete="shipping country-name")
+    div
+      label(for="postal-code") Postal Code
+      input#postal-code(type="text", name="postal-code", autocomplete="shipping postal-code")
+  fieldset #[legend Payment Information #[b DO NOT USE A REAL CARD NUMBER!!!]]
+    div
+      label(for="cc-name") Name on Card
+      input#cc-name(type="text", name="cc-name", autocomplete="cc-name")
+    div
+      label(for="cc-given-name") Given Name on Card
+      input#cc-given-name(type="text", name="cc-given-name", autocomplete="cc-given-name")
+    div
+      label(for="cc-additional-name") Additional Name on Card
+      input#cc-additional-name(type="text", name="cc-additional-name", autocomplete="cc-additional-name")
+    div
+      label(for="cc-family-name") Family Name on Card
+      input#cc-family-name(type="text", name="cc-family-name", autocomplete="cc-family-name")
+    div
+      label(for="cc-number") Credit Card Number
+      input#cc-number(type="text", name="cc-number", autocomplete="cc-number")
+    div
+      label(for="cc-exp") Expiration Date
+      input#cc-exp(type="month", name="cc-exp", autocomplete="cc-exp")
+    div
+      label(for="cc-exp-month") Expiration Month
+      input#cc-exp-month(type="number", name="cc-exp-month", autocomplete="cc-exp-month")
+    div
+      label(for="cc-exp-year") Expiration Year
+      input#cc-exp-year(type="number", name="cc-exp-year", autocomplete="cc-exp-year")
+    div
+      label(for="cc-csc") CSC
+      input#cc-csc(type="text", name="cc-csc", autocomplete="cc-csc")
+    div
+      label(for="cc-type") Credit Card Type
+      input#cc-type(type="text", name="cc-type", autocomplete="cc-type")
+  fieldset #[legend Transaction information]
+    p.
+      The use case for this isn't a typical autofill. The expectation would be that these fields are hidden and the user agent might "use this information to suggest a credit card that it knows has sufficient balance and that supports the relevant currency."
+    div
+      label(for="transaction-currency") Transaction Currency
+      input#transaction-currency(type="text", name="transaction-currency", autocomplete="transaction-currency")
+    div
+      label(for="transaction-amount") Transaction Amount
+      input#transaction-amount(type="number", name="transaction-amount", autocomplete="transaction-amount")
+  fieldset #[legend Personal information]
+    div
+      label(for="language") Preferred Language
+      input#language(type="text", name="language", autocomplete="language")
+    div
+      label(for="bday") Birthday
+      input#bday(type="date", name="bday", autocomplete="bday")
+    div
+      label(for="bday-day") Birthday Day
+      input#bday-day(type="number", name="bday-day", autocomplete="bday-day")
+    div
+      label(for="bday-month") Birthday Month
+      input#bday-month(type="number", name="bday-month", autocomplete="bday-month")
+    div
+      label(for="bday-year") Birthday year
+      input#bday-year(type="number", name="bday-year", autocomplete="bday-year")
+    div
+      label(for="sex") Sex
+      input#sex(type="text", name="sex", autocomplete="sex")
+    div
+      label(for="url") URL
+      input#url(type="url", name="url", autocomplete="url")
+    div
+      label(for="photo") Photo URL
+      input#photo(type="url", name="photo", autocomplete="photo")
+  fieldset #[legend Home contact info]
+    div
+      label(for="tel") Telephone Number
+      input#tel(type="tel", name="tel", autocomplete="home tel")
+    div
+      label(for="tel-country-code") Country Code
+      input#tel-country-code(type="text", name="tel-country-code", autocomplete="home tel-country-code")
+    div
+      label(for="tel-national") Telephone number without the county code
+      input#tel-national(type="text", name="tel-national", autocomplete="home tel-national")
+    div
+      label(for="tel-area-code") Area Code
+      input#tel-area-code(type="text", name="tel-area-code", autocomplete="home tel-area-code")
+    div
+      label(for="tel-local") Telephone number without the country code and area code components
+      input#tel-local(type="text", name="tel-local", autocomplete="home tel-local")
+    div
+      label(for="tel-local-prefix") Local Prefix
+      input#tel-local-prefix(type="text", name="tel-local-prefix", autocomplete="home tel-local-prefix")
+    div
+      label(for="tel-local-suffix") Local Suffix
+      input#tel-local-suffix(type="text", name="tel-local-suffix", autocomplete="home tel-local-suffix")
+    div
+      label(for="tel-extension") Extension
+      input#tel-extension(type="text", name="tel-extension", autocomplete="home tel-extension")
+    div
+      label(for="email") Email
+      input#email(type="email", name="email", autocomplete="home email")
+    div
+      label(for="impp") Chat
+      input#impp(type="url", name="impp", autocomplete="home impp")
+  div
+    button(type="submit") Submit
