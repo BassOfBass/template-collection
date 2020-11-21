@@ -1,4 +1,5 @@
-mixin semquote(url, source)
+//- semantic `<blockquote>` which also exposes the `<cite>` URL
+mixin semQuote(url, source)
   p As per
     a(href=url)#[cite #{source}]
   .
