@@ -1,0 +1,7 @@
+mixin semquote(url, source)
+  p As per
+    a(href=url)#[cite #{source}]
+  .
+    :
+  blockquote(cite=url)
+    block quote
