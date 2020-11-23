@@ -1,0 +1,47 @@
+{
+  "name": "templates-collection",
+  "version": "0.1.0",
+  "description": "a collection of various templates and examples",
+  "main": "node.js",
+  "type": "module",
+  "scripts": {
+    "scss": "node-sass --output-style compressed -o dist/css/sass-scss src/css/sass-scss",
+    "autoprefixer": "postcss -u autoprefixer -r dist/css/*",
+    "lint": "eslint src/js",
+    "uglify": "mkdir -p dist/js && uglifyjs src/js/*.js -m -c -o dist/js/app.js",
+    "imagemin": "imagemin src/media/images dist/media/images -p",
+    "icons": "svgo -f src/media/icons && mkdir -p dist/media && svg-sprite-generate -d src/media/icons -o dist/media/icons.svg",
+    "serve": "browser-sync start --server --files 'dist/css/*.css, dist/js/*.js'",
+    "build:css": "npm run scss && npm run autoprefixer",
+    "build:js": "npm run lint && npm run uglify",
+    "build:images": "npm run imagemin && npm run icons",
+    "build:all": "npm run build:css && npm run build:js && npm run build:images",
+    "watch:css": "onchange 'src/css/sass-scss/*.scss' -- npm run build:css",
+    "watch:js": "onchange 'src/js/*.js' -- npm run build:js",
+    "watch:all": "parallelshell 'npm run serve' 'npm run watch:css' 'npm run watch:js'",
+    "postinstall": "npm run watch:all"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BassOfBass/template-collection.git"
+  },
+  "author": "BassOfBass",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BassOfBass/template-collection/issues"
+  },
+  "homepage": "https://github.com/BassOfBass/template-collection#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.0.2",
+    "browser-sync": "^2.26.13",
+    "eslint": "^7.14.0",
+    "imagemin-cli": "^6.0.0",
+    "node-sass": "^5.0.0",
+    "onchange": "^7.1.0",
+    "parallelshell": "^3.0.2",
+    "postcss-cli": "^8.3.0",
+    "svg-sprite-generator": "0.0.7",
+    "svgo": "^1.3.2",
+    "uglify-js": "^3.12.0"
+  }
+}

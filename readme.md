@@ -1,10 +1,4 @@
 A collection of various templates.
 
-- normalize.css
-- template.html
-- template.pug
-- template.css
-- template.scss
-- template.js
-- sandbox.html
-- sandbox.css
+- [fully automated dev scripts](https://css-tricks.com/why-npm-scripts/)
+
