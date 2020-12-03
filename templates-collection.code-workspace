@@ -18,6 +18,7 @@
     "javascript.preferences.quoteStyle": "double",
     "javascript.preferences.importModuleSpecifier": "non-relative",
     "javascript.referencesCodeLens.enabled": true,
+    "javascript.referencesCodeLens.showOnAllFunctions": true,
     "emmet.extensionsPath": null,
     "[markdown]": {
       "files.trimTrailingWhitespace": false
