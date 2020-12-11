@@ -376,9 +376,8 @@ textarea {
     Interactive elements such as form input should provide an area large enough that it is easy to activate them. This helps a variety of people, including people with motor control issues and people using non-precise forms of input such as a stylus or fingers. A minimum interactive size of 44×44 CSS pixels is recommended. 
   */
   min-width: 44px;
-  width: 100%;
-  max-width: var(--mobile-width);
   min-height: 44px;
+  width: 100%;
   font-family: inherit; // Change the font styles in all browsers.
   font-size: 100%; // Change the font styles in all browsers.
   line-height: 1.15; // Change the font styles in all browsers.
