@@ -16,3 +16,22 @@ export function degToRad(degrees) {
 export function rollRandom(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + (min);
 }
+
+/**
+ * Return url query parameter out of the object.
+ * @param {object} object 
+ */
+function getQuery(object) {
+  const query = Object.entries(object)
+  .reduce((query, [ key, value ]) => {
+
+    return query += `${key}=${value}&`
+    
+  }, "?")
+  .slice(0, -1)
+
+  const encodedQuery = encodeURIComponent(query)
+
+  return encodedQuery
+
+}
