@@ -52,3 +52,12 @@ const animateOnScrollObserver = new IntersectionObserver(
     })
   }
 )
+
+// Vue.directive('animate-on-scroll', {
+//   bind: el => { 
+//     // Add 'before-enter' class
+//     el.classList.add('before-enter') 
+//     // Observe element    
+//     animateOnScrollObserver.observe(el)
+//   }
+// })
