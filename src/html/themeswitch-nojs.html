@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --colour0-primary: hsl(0, 0%, 20%);
+      --colour0-secondary: hsl(0, 0%, 80%);
+    }
+
+    html {
+      box-sizing: border-box;
+      height: 100%;
+      padding: 0;
+      margin: 0;
+    }
+
+    *, 
+    *::before, 
+    *::after {
+      box-sizing: inherit;
+      transition-duration: var(--duration-global);
+    }
+
+    body {
+      height: 100%;
+      padding: 0;
+      margin: 0;
+    }
+
+    .themer {
+      display: flex;
+      flex-flow: column nowrap;
+      min-height: 100%;
+      height: 100%;
+      color: var(--colour0-primary);
+      background-color: var(--colour0-secondary);
+    }
+
+    .themer > *:not(main) {
+      flex-shrink: 0 0 auto;
+      padding: 1em;
+    }
+    .themer > main {
+      flex: 1 1 auto;
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+      padding: 1em;
+    }
+
+    .switch + .themer {
+      --colour0-primary: hsl(0, 0%, 20%);
+      --colour0-secondary: hsl(0, 0%, 80%);
+    }
+
+    .switch:checked + .themer {
+      --colour0-primary:hsl(0, 0%, 80%) ;
+      --colour0-secondary: hsl(0, 0%, 20%);
+    }
+  </style>
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="checkbox" name="switch" id="switch" class="switch" hidden>
+  <div class="themer">
+    <header>header</header>
+    <main>main</main>
+    <footer>
+      <p>footer</p>
+      <div>
+        <button type="button">
+          <label for="switch">
+            Switch
+          </label>
+        </button>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
