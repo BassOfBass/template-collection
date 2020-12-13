@@ -35,3 +35,20 @@ function getQuery(object) {
   return encodedQuery
 
 }
+
+/**
+ * Taken from [gist](https://gist.github.com/fletcherrippon/d89aa1741d1713f0d80de1d78f359449#file-animateonscroll-js)
+ */
+const animateOnScrollObserver = new IntersectionObserver(
+  (entries, animateOnScrollObserver) => {
+    entries.forEach(entry => {
+      // If element is in view
+      if (entry.isIntersecting) {
+        // Add class 'enter'
+        entry.target.classList.add('enter') 
+        // Unobserve element         
+        animateOnScrollObserver.unobserve(entry.target)
+      }
+    })
+  }
+)
