@@ -38,6 +38,7 @@ function getQuery(object) {
 
 /**
  * Taken from [gist](https://gist.github.com/fletcherrippon/d89aa1741d1713f0d80de1d78f359449#file-animateonscroll-js)
+ * [Article itself](https://medium.com/swlh/nuxt-creating-custom-directives-for-static-srr-sites-bf287f0cb6bb)
  */
 const animateOnScrollObserver = new IntersectionObserver(
   (entries, animateOnScrollObserver) => {
