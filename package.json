@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "a collection of various templates and examples",
   "main": "node.js",
-  "exports: "node.js"
+  "exports: "node.js",
   "type": "module",
   "scripts": {
     "scss": "node-sass --output-style compressed -o dist/css/sass-scss src/css/sass-scss",
