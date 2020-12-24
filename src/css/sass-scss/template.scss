@@ -1,3 +1,9 @@
+// Font Awesome imports when they are installed as a package
+// $fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
+// @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+// @import '~@fortawesome/fontawesome-free/scss/solid';
+// @import '~@fortawesome/fontawesome-free/scss/brands';
+
 /*
   `Normalize.css` is already merged into this file, almost all `//` comments on the side are from normalize
   ! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css 
@@ -12,32 +18,48 @@
   --colour0-secondary: hsl(0, 0%, 85%);
 
   // links
-  --anchor-base-colour: 120;
-  --anchor-primary-colour: hsl(120, 80%, 40%);
-  --anchor-secondary-colour: hsl(120, 100%, 95%);
+  --colour-submit-primary: hsl(240, 100%, 50%);
+  --colour-submit-secondary: hsl(220, 100%, 80%);
+  --colour-positive-primary: hsl(140, 100%, 50%);
+  --colour-positive-secondary: hsl(140, 100%, 80%);
+  --colour-negative-primary: hsl(350, 100%, 50%);
+  --colour-negative-secondary: hsl(350, 100%, 80%);
+
+  // links
+  --colour-anchor-primary: hsl(120, 80%, 35%);
+  --colour-anchor-secondary: hsl(120, 100%, 75%);
   // local links
-  --anchor-local-base-colour: 270;
-  --anchor-local-primary-colour: hsl(270, 80%, 50%);
-  --anchor-local-secondary-colour: hsl(270, 100%, 95%);
+  --colour-anchor-local-primary: hsl(270, 80%, 50%);
+  --colour-anchor-local-secondary: hsl(270, 100%, 95%);
 
-  // buttons
-  --positive-colour: 120;
-  --negative-colour: 0;
-  --submit-colour: 220;
+  // fonts
+  --font-size-base: 16px;
 
-   // widths
-   --mobile-width: 360px;
-   --tablet-width: 720px;
-   --desktop-width: 1080px;
-   --input-min-height: 44px;
-   --input-min-width: 44px;
+  // widths
+  --width-mobile: 360px;
+  --width-tablet: 720px;
+  --width-desktop: 1080px;
+  --min-height-input: 44px;
+  --min-width-input: 44px;
+  // sass versions
+  $width-mobile: 360px;
+  $width-tablet: 720px;
+  $width-desktop: 1080px;
 
-   // durations for transition and transform properties
+  // durations for transition and transform properties
   --duration-none: 0;
   --duration-fast: 0.25s;
   --duration-norm: 0.5s;
   --duration-slow: 1s;
-  --duration-global: var(--duration-norm);
+  --duration-global: var(--duration-fast);
+
+  --outline-default-width: 3px;;
+  --outline-default-colour: var(--colour0-primary);;
+  --outline-default-style: dashed;;
+  --outline-default: 
+    var(--outline-default-width) 
+    var(--outline-default-colour) 
+    var(--outline-default-style);
 }
 
 // Set base font and the box sizing property 
@@ -45,10 +67,14 @@ html {
   box-sizing: border-box;
   // prep fpr sticky footer
   height: 100%;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   // Sets font size property which then becomes a basis for "rem" units 
-  font: 16px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: var(--font-size-base); 
   line-height: 1.15; // Correct the line height in all browsers.
   -webkit-text-size-adjust: 100%; // Prevent adjustments of font size after orientation changes in iOS.
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
   padding: 0;
   margin: 0;
 }
@@ -58,7 +84,14 @@ html {
 *::before, 
 *::after {
   box-sizing: inherit;
+  margin: 0;
+  transition-property: color, background-color;
   transition-duration: var(--duration-global);
+}
+
+*:focus {
+  outline: var(--outline-default);
+  outline-offset: 2px;
 }
 
 body {
@@ -69,6 +102,11 @@ body {
   background: var(--colour0-secondary);
   padding: 0;
   margin: 0; // Remove the margin in all browsers.
+
+  & > * {
+    flex: 0 0 auto;
+    padding: 1em;
+  }
 }
 
 /* Content sectioning */
@@ -78,6 +116,14 @@ main {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+
+  & > section {
+    position: relative;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 // Style semantic tags for older browsers 
@@ -88,10 +134,6 @@ header,
 nav, 
 section {
   display: block;
-}
-
-article {
-  padding: 0.5em;
 }
 
 h1 {
@@ -187,8 +229,7 @@ a {
   padding: 0.25em;
 
   &:link {
-    color: hsl(var(--base-anchor-colour), 80%, 40%);
-    text-shadow: 0 0 1px var(--colour0-primary);
+    color: var(--colour-anchor-primary);
   }
   
   /* 
@@ -204,24 +245,24 @@ a {
     In addition, even for the above styles, you won't be able to change the transparency between unvisited and visited links, as you otherwise would be able to using rgba(), hsla(), or the transparent keyword.
   */
   &:visited {
-    color: hsl(var(--base-anchor-colour), 60%, 30%);
+    color: var(--colour-anchor-primary);
   }
   
-  &:focus,
+  // &:focus
   &:hover {
-    color: hsl(var(--base-anchor-colour), 90%, 40%);
-    background-color: hsl(var(--base-anchor-colour), 100%, 95%);
+    color: var(--colour-anchor-primary);
+    background-color: var(--colour-anchor-secondary);
     /* 
       border-bottom has better styling options than than text-decoration 
       no color specified means it will adopt font color
     */
-    border-bottom: 1px solid;
+    border-bottom: 0.1em solid;
     cursor: pointer;
   }
   
   &:active {
-    color: hsl(var(--base-anchor-colour), 100%, 95%);
-    background-color: hsl(var(--base-anchor-colour), 90%, 40%);
+    color: var(--colour-anchor-secondary);
+    background-color: var(--colour-anchor-primary);
   }
 }
 
@@ -386,7 +427,7 @@ textarea {
   /* 
     Large amounts of interactive content — including buttons — placed in close visual proximity to each other should have space separating them. This spacing is beneficial for people who are experiencing motor control issues, who may accidentally activate the wrong interactive content. 
   */
-  margin: 1em 0; 
+  margin: 1em; 
 }
 
 button,
@@ -410,7 +451,7 @@ textarea {
 }
 
 form {
-  max-width: var(--mobile-width);
+  max-width: var(--width-mobile);
   border: 1px solid var(--colour0-primary);
   padding: 1em;
   border-radius: 1em;
@@ -437,7 +478,7 @@ label {
 }
 
 input {
-  border: 2px solid transparent; 
+  border: 2px solid; 
   transition: var(--duration-global);
 
   /* 
@@ -477,27 +518,24 @@ input {
     <input>, <select>, or <textarea> element that has the required attribute set on it. Only matches elements that can be required. The attribute included on a non-requirable element will not make for a match. 
   */
   &:required {
-    box-shadow: 0 0 3px 3px hsl(var(--submit-colour), 100%, 50%);
+    border-color: var(--colour-submit-primary);
   }
 
   &:focus {
-    box-shadow: 0 0 5px 5px hsl(var(--submit-colour), 100%, 50%);
+    border-color: transparent;
+    box-shadow: 0 0 6px 6px var(--colour-submit-primary);
+    outline: none;
   }
 
   /* 
     Form controls that have constraint validation applied and are currently not valid. Matches a form control whose value doesn't match the constraints set on it by it's attributes, such as "required", "pattern", "step" and "max". 
   */
-  &:invalid {
-    border-color: hsl(var(--negative-colour), 100%, 50%);
-  }
+  // &:invalid {}
 
   /* 
     Form controls that can have constraint validation applied and are currently valid. 
   */
-  &:valid {
-    border-color: hsl(var(--positive-colour), 100%, 50%);
-  }
-  
+  // &:valid {}
   
   /* 
     A non-empty input whose current value is within the range limits specified by the "min" and "max" attributes and the "step". 
@@ -508,7 +546,6 @@ input {
     A non-empty input whose current value is NOT within the range limits specified by the "min" and "max" attributes or does not adher to the "step" constraint. 
   */
   // &:out-of-range {}
-  
   
   
   /* 
@@ -541,6 +578,10 @@ textarea {
   overflow: auto; // Remove the default vertical scrollbar in IE 10+.
 }
 
+select {
+  cursor: pointer;
+}
+
 progress {
   vertical-align: baseline; // Add the correct vertical alignment in Chrome, Firefox, and Opera.
 }
@@ -549,6 +590,9 @@ button {
   color: var(--colour0-primary);
   background-color: var(--colour0-secondary);
   border: 1px solid;
+  box-shadow: 
+    inset 2px 2px 3px hsla(0, 0%, 100%, 0.6),
+    inset -2px -2px 3px hsla(0, 0%, 0%, 0.6);
   cursor: pointer;
   -webkit-appearance: button; // Correct the inability to style clickable types in iOS and Safari.
   
@@ -564,7 +608,12 @@ button {
   }
 
   // &:hover {}
-  // &:focus {}
+  &:focus {
+    border-color: var(--colour0-primary);
+    box-shadow: 0 0 5px 5px inherit;
+    outline: none;
+  }
+
   &:active {
     box-shadow: 
       inset -2px -2px 3px hsla(0, 0%, 100%, 0.6),
@@ -691,13 +740,9 @@ input {
   }
 
   // &[type="color"] {}
-  
   // &[type="date"] {}
-  
   // &[type="datetime-local"] {}
-  
   // &[type="month"] {}
-
 }
 
 /* 
@@ -708,22 +753,55 @@ label + input[type="file"] {
 }
 
 button {
+  &[type="button"] {
+    color: var(--colour0-primary);
+    background-color: var(--colour0-secondary);
+    background-image: 
+      radial-gradient(
+        var(--colour0-secondary),
+        var(--colour0-secondary),
+        var(--colour0-primary)
+      );
 
-  &[type="submit"] {
-    color: hsl(var(--submit-colour), 100%, 25%);
-    background-color: hsl(var(--submit-colour), 80%, 70%);
-
-    transition-duration: var(--duration-global);
-
-    &:hover {
-      color: hsl(var(--submit-colour), 100%, 25%);
-      background-color: hsl(var(--submit-colour), 80%, 60%);
+    &:focus {
+      outline: var(--outline-default);
     }
 
     &:active {
-      color: hsl(var(--submit-colour), 80%, 70%);
-      background-color: hsl(var(--submit-colour), 100%, 25%);
+      color: var(--colour0-secondary);
+      background-color: var(--colour0-primary);
+      background-image: 
+      radial-gradient(
+        var(--colour0-primary),
+        var(--colour0-primary),
+        var(--colour0-secondary)
+      );
     }
+  }
+
+  &[type="submit"] {
+  color: var(--colour-submit-primary);
+  background-color: var(--colour-submit-secondary);
+  background-image: 
+    radial-gradient(
+      var(--colour-submit-secondary),
+      var(--colour-submit-secondary),
+      var(--colour-submit-primary)
+    );
+
+  &:focus {
+    outline: var(--outline-default);
+  }
+
+  &:active {
+    color:var(--colour-submit-secondary);
+    background-color: var(--colour-submit-primary);
+    background-image: radial-gradient(
+      var(--colour-submit-primary),
+      var(--colour-submit-primary),
+      var(--colour-submit-secondary)
+    );
+  }
   }
 }
 
@@ -731,9 +809,52 @@ button {
 /* END Attribute [class=""] rules */
 /* Attribute [id=""] rules */
 /* END Attribute [id=""] rules */
+
 /* END Attribute rules */
 
 /* Class rules */
+
+/* Button panels */
+.buttons {
+
+  form & {
+    text-align: center;
+
+    & > button {
+      width: auto;
+      margin: 0 1em;
+    }
+  }
+}
+
+/* Hidden switchers */
+.hiddenswitch {
+  padding: 0;
+
+  & > .hiddenlabel {
+    padding: 1em;
+    color: var(--colour0-primary);
+  }
+
+  &:active > .hiddenlabel {
+    color: var(--colour0-secondary)
+  }
+}
+
+.hiddenswitcher {
+  display: none;
+
+  & + * {
+    display: none;
+    opacity: 0;
+  }
+
+  &:checked + * {
+    display: block;
+    opacity: 1;
+  }
+}
+/* END Hidden switchers */
 
 // skip to main button
 .gskip {

@@ -2,10 +2,7 @@
   "name": "templates-collection",
   "version": "0.1.0",
   "description": "a collection of various templates and examples",
-  "main": "node.js",
-  "type": "module",
-  "scripts": {
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/BassOfBass/template-collection.git"
@@ -17,6 +14,7 @@
   },
   "homepage": "https://github.com/BassOfBass/template-collection#readme",
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.1",
     "autoprefixer": "^10.0.2",
     "eslint": "^7.14.0",
     "postcss": "^8.2.1",
