@@ -62,3 +62,7 @@ const animateOnScrollObserver = new IntersectionObserver(
 //     animateOnScrollObserver.observe(el)
 //   }
 // })
+
+function getURLExtension( url ) {
+    return url.split(/[#?]/)[0].split('.').pop().trim();
+}
