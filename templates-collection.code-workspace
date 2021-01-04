@@ -16,12 +16,19 @@
     ],
     "files.autoSave": "onWindowChange",
     "javascript.preferences.quoteStyle": "double",
-    "javascript.preferences.importModuleSpecifier": "non-relative",
     "javascript.referencesCodeLens.enabled": true,
     "javascript.referencesCodeLens.showOnAllFunctions": true,
+    "typescript.preferences.quoteStyle": "double",
+    "typescript.referencesCodeLens.enabled": true,
+    "typescript.implementationsCodeLens.enabled": true,
+    "typescript.referencesCodeLens.showOnAllFunctions": true,
     "emmet.extensionsPath": null,
     "[markdown]": {
       "files.trimTrailingWhitespace": false
     }
-	}
+  },
+  "recommendations": [
+    "mikestead.dotenv",
+    "eamodio.gitlens"
+  ]
 }
