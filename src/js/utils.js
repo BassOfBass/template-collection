@@ -66,3 +66,13 @@ const animateOnScrollObserver = new IntersectionObserver(
 function getURLExtension( url ) {
     return url.split(/[#?]/)[0].split('.').pop().trim();
 }
+
+/**
+ * @param {number} number
+ * @param {precision} [precision=0]
+ */
+function roundNumber(number, precision = 0) {
+  const factor = 10 ** precision;
+  const product = Math.round(number * factor * 10) / 10;
+  return Math.round(product) / factor;
+}
