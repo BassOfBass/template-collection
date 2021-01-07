@@ -60,6 +60,11 @@
     var(--outline-default-width) 
     var(--outline-default-colour) 
     var(--outline-default-style);
+  
+  // disable animations for people not wanting them
+  @media (prefers-reduced-motion) {
+    --duration-global: var(--duration-none);
+  }
 }
 
 // Set base font and the box sizing property 
