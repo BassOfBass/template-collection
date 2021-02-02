@@ -1,0 +1,54 @@
+:root {
+  // base colours
+  --colour0-primary:hsl(0, 0%, 15%);
+  --colour0-secondary: hsl(0, 0%, 85%);
+
+  // links
+  --colour-submit-primary: hsl(240, 100%, 50%);
+  --colour-submit-secondary: hsl(220, 100%, 80%);
+  --colour-positive-primary: hsl(140, 100%, 50%);
+  --colour-positive-secondary: hsl(140, 100%, 80%);
+  --colour-negative-primary: hsl(350, 100%, 50%);
+  --colour-negative-secondary: hsl(350, 100%, 80%);
+
+  // links
+  --colour-anchor-primary: hsl(120, 80%, 35%);
+  --colour-anchor-secondary: hsl(120, 100%, 75%);
+  // local links
+  --colour-anchor-local-primary: hsl(270, 80%, 50%);
+  --colour-anchor-local-secondary: hsl(270, 100%, 95%);
+
+  // fonts
+  --font-size-base: 16px;
+
+  // widths
+  --width-mobile: 360px;
+  --width-tablet: 720px;
+  --width-desktop: 1080px;
+  --min-height-input: 44px;
+  --min-width-input: 44px;
+  // sass versions
+  $width-mobile: 360px;
+  $width-tablet: 720px;
+  $width-desktop: 1080px;
+
+  // durations for transition and transform properties
+  --duration-none: 0;
+  --duration-fast: 0.25s;
+  --duration-norm: 0.5s;
+  --duration-slow: 1s;
+  --duration-global: var(--duration-fast);
+
+  --outline-default-width: 3px;;
+  --outline-default-colour: var(--colour0-primary);;
+  --outline-default-style: dashed;;
+  --outline-default: 
+    var(--outline-default-width) 
+    var(--outline-default-colour) 
+    var(--outline-default-style);
+  
+  // disable animations for people not wanting them
+  @media (prefers-reduced-motion) {
+    --duration-global: var(--duration-none);
+  }
+}

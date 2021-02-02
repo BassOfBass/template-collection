@@ -1,0 +1,41 @@
+/* Button panels */
+.buttons {
+
+  form & {
+    text-align: center;
+
+    & > button {
+      width: auto;
+      margin: 0 1em;
+    }
+  }
+}
+
+/* Hidden switchers */
+.hiddenswitch {
+  padding: 0;
+
+  & > .hiddenlabel {
+    padding: 1em;
+    color: var(--colour0-primary);
+  }
+
+  &:active > .hiddenlabel {
+    color: var(--colour0-secondary)
+  }
+}
+
+.hiddenswitcher {
+  display: none;
+
+  & + * {
+    display: none;
+    opacity: 0;
+  }
+
+  &:checked + * {
+    display: block;
+    opacity: 1;
+  }
+}
+/* END Hidden switchers */

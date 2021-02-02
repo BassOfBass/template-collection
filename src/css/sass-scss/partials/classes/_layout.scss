@@ -1,0 +1,98 @@
+// skip to main button
+.gskip {
+  position: absolute;
+  left: 50%;
+  height: 30px;
+  background: hsl(30, 80%, 70%);
+  padding: 0.25em;
+  transform: translateY(-100%);
+  transition: transform 0.3s;
+
+  &:focus {
+    transform: translateY(0%);
+  }
+}
+
+// global header
+.gheader {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  font-size: 1.5rem;
+  border-bottom: 2px solid var(--colour0-primary);
+  padding: 0 1em;
+
+  // top part
+  & .gtop {
+    display: inline-flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  // logo link
+  & .glogo {
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    // shadow so it wouldn't blend with bg colour
+    text-shadow: 0 0 2px var(--colour0-primary);
+    
+    // &:link {}
+    // &:visited {}
+    // &:focus,
+    // &:hover {}
+    // &:active {}
+  }
+
+  // global search
+  & .gsearch {
+    display: flex;
+    flex-flow: row nowrap;
+    border: none;
+    padding: 0;
+    margin: 0;
+
+    // input container
+    & > div:first-child {
+      flex: 1 1 auto;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+    }
+
+    // submit button container
+    & > div:last-child {
+      flex: 0 0 auto;
+    }
+  }
+
+  // nav bar
+  & .gnav {
+
+    & > ul {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-evenly;
+    }
+  }
+}
+
+// global footer
+.gfooter {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border-top: 2px solid var(--colour0-primary);
+  padding: 1em;
+
+  // dark/light mode switcher
+  & .glightswitch {
+    width: auto;
+    border-radius: 50%;
+    padding: 0.5em;
+    margin: 0;
+  }
+}
