@@ -31,6 +31,14 @@
   $width-mobile: 360px;
   $width-tablet: 720px;
   $width-desktop: 1080px;
+  
+  // paddings
+  --padding-thin: 0.125em;
+  --padding-small: 0.25em;
+  --padding-normal: 0.5em;
+  --padding-big: 1em;
+  --padding-large: 2em;
+  --padding-global: var(--padding-big);
 
   // durations for transition and transform properties
   --duration-none: 0;
