@@ -5,7 +5,7 @@
 		}
 	],
 	"settings": {
-"editor.tabSize": 2,
+    "editor.tabSize": 2,
 		"editor.detectIndentation": false,
     "editor.foldingStrategy": "indentation",
     "editor.rulers": [
@@ -22,13 +22,16 @@
     "typescript.referencesCodeLens.enabled": true,
     "typescript.implementationsCodeLens.enabled": true,
     "typescript.referencesCodeLens.showOnAllFunctions": true,
-    "emmet.extensionsPath": null,
+    "emmet.extensionsPath": [],
     "[markdown]": {
       "files.trimTrailingWhitespace": false
-    }
+    },
   },
-  "recommendations": [
-    "mikestead.dotenv",
-    "eamodio.gitlens"
-  ]
+  "extensions": {
+    "recommendations": [
+      "webben.browserslist",
+      "mikestead.dotenv",
+      // "eamodio.gitlens"
+    ]
+  }
 }
